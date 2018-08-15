@@ -9,11 +9,24 @@ public class Fundamentals_I
        short b = 10000;
        int c = 100000;
        long d = 100000L; 
-       float f1 = 234.5f; 
-       double d1 = 123.4;
-       boolean one = true; 
+       float f = 234.5f; 
+       double e = 123.4;
+       boolean g = true; 
        char letterA = 'A'; 
-       System.out.println("A byte is an 8-bit signed two's complement integer"); 
+       String ex_byte = "A byte is an 8-bit signed two's complement integer"; 
+       String ex_byte_r = "1) number of fingers, 2) number of the classes you take, 3) number of movies you watched per day"; 
+       String ex_short = "[16 bit] Short data type can also be used to save memory as byte data type."; 
+       String ex_short_r = "1) the amount of giant pandas left in the world, 2) the amount of seconds I spend in school, 3) the amount of seconds I sleep every day"; 
+       String ex_int = "Integer is generally used as the default data type for integral values unless there is a concern about memory."; 
+       String ex_int_r = "1) the amount of calories 15 people comsume in their life time, 2) the amount of tissue in human, 3) chinese population"; 
+       String ex_long = "Long data type is a 64-bit signed two's complement integer"; 
+       String ex_long_r = "1) number of cells in human body 2) the amount of lego nedded to build a Big Ben, 3) human population"; 
+       String ex_float = "Float data type is a single-precision 32-bit IEEE 754 floating point"; 
+       String ex_float_r = "1) grade, 2) game points, 3) miles walked per day"; 
+       
+  
+    
+       
        
     }
 }
