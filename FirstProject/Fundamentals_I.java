@@ -23,10 +23,11 @@ public class Fundamentals_I
        String ex_long_r = "1) number of cells in human body 2) the amount of lego nedded to build a Big Ben, 3) human population"; 
        String ex_float = "Float data type is a single-precision 32-bit IEEE 754 floating point"; 
        String ex_float_r = "1) grade, 2) game points, 3) miles walked per day"; 
-       
-  
-    
-       
-       
+       String ex_double = "default data type for decimal values, generally the default choice";
+       String ex_double_r = "1) the first few hundred decimals of pi 2)test percentage 3)gaming hours"; 
+       String ex_boolean = "There are only two possible values: true and false"; 
+       String ex_boolean_r = "1) did I study? 2) the computer is on? 3) the box is open?"; 
+       String ex_char = "Char data type is used to store any character"; 
+       String ex_char_r = "1) name 2) email message 3) my pet name"; 
     }
 }
