@@ -29,5 +29,30 @@ public class Fundamentals_I
        String ex_boolean_r = "1) did I study? 2) the computer is on? 3) the box is open?"; 
        String ex_char = "Char data type is used to store any character"; 
        String ex_char_r = "1) name 2) email message 3) my pet name"; 
+       System.out.format("Example data types: %n byte :%d%n short :%d%n int :%d%n long :%d%n float :%f%n double :%f%n boolean :%s%n char:%s%n", a, b, c, d, f, e, g, letterA);  
     }
+    
+   public static int add(int a, int b){ 
+       int sum = a+b;
+       return sum;
+       
+   }      
+   
+   public static int subtract(int a, int b){ 
+       int differance = a-b;
+       return differance;
+       
+   } 
+   
+   public static int div(int a, int b){ 
+       int quotient = a/b;
+       return quotient;
+       
+   }
+   
+   public static int mul(int a, int b){ 
+       int product = a*b;
+       return product;
+       
+   }
 }

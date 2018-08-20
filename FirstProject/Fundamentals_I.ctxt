@@ -4,4 +4,6 @@ comment1.params=args
 comment1.target=void\ main(java.lang.String[])
 comment2.params=
 comment2.target=void\ dataTypes()
-numComments=3
+comment3.params=a\ b
+comment3.target=int\ add(int,\ int)
+numComments=4
