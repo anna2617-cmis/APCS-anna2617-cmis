@@ -1,7 +1,24 @@
+import javax.swing.JOptionPane;
 public class Fundamentals_I
 {
    public static void main (String[] args){
        dataTypes();
+       
+       System.out.println(add(1,2)); 
+       System.out.println(mul(1,2)); 
+       
+       int suba = 0; //define the variable 
+       int diva = 0; 
+       
+       String input_1 = JOptionPane.showInputDialog("insert first number");
+       int num_1 = Integer.parseInt(input_1); 
+       String input_2 = JOptionPane.showInputDialog("insert first number");
+       int num_2 = Integer.parseInt(input_2); 
+       suba = sub(num_1, num_2); 
+       System.out.format("subtraction %d%n",suba); 
+       diva = div(num_1, num_2); 
+       System.out.format("division %d%n",diva); 
+       
     }
     
    public static void dataTypes(){
@@ -38,7 +55,7 @@ public class Fundamentals_I
        
    }      
    
-   public static int subtract(int a, int b){ 
+   public static int sub(int a, int b){ 
        int differance = a-b;
        return differance;
        
@@ -55,4 +72,32 @@ public class Fundamentals_I
        return product;
        
    }
+   
+   public static double add_d(double a, double b){ 
+       double sum = a+b;
+       return sum;
+       
+   }      
+   
+   public static double sub_d(double a, double b){ 
+       double differance = a-b;
+       return differance;
+       
+   } 
+   
+   public static double div_d(double a, double b){ 
+       double quotient = a/b;
+       return quotient;
+       
+   }
+   
+   public static double mul_d(double a, double b){ 
+       double product = a*b;
+       return product;
+       
+   }
+   
+   public static void compare(int a, int b){
+       
+    } 
 }
