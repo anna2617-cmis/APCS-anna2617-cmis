@@ -5,15 +5,17 @@ public class Fundamentals_I
        dataTypes();
        
        System.out.println(add(1,2)); 
-       System.out.println(mul(1,2)); 
+       System.out.println(mul(1.5,2.3)); 
        
        int suba = 0; //define the variable 
        int diva = 0; 
        
        String input_1 = JOptionPane.showInputDialog("insert first number");
-       int num_1 = Integer.parseInt(input_1); 
-       String input_2 = JOptionPane.showInputDialog("insert first number");
+       int num_1 = Integer.parseInt(input_1);
+       System.out.println(num_1); 
+       String input_2 = JOptionPane.showInputDialog("insert second number");
        int num_2 = Integer.parseInt(input_2); 
+       System.out.println(num_2);
        suba = sub(num_1, num_2); 
        System.out.format("subtraction %d%n",suba); 
        diva = div(num_1, num_2); 
@@ -73,31 +75,44 @@ public class Fundamentals_I
        
    }
    
-   public static double add_d(double a, double b){ 
+   public static double add(double a, double b){ 
        double sum = a+b;
        return sum;
        
    }      
    
-   public static double sub_d(double a, double b){ 
+   public static double sub(double a, double b){ 
        double differance = a-b;
        return differance;
        
    } 
    
-   public static double div_d(double a, double b){ 
+   public static double div(double a, double b){ 
        double quotient = a/b;
        return quotient;
        
    }
    
-   public static double mul_d(double a, double b){ 
+   public static double mul(double a, double b){ 
        double product = a*b;
        return product;
        
    }
    
    public static void compare(int a, int b){
-       
+       if (a >= b) {
+           System.out.format("The value of a is %d and it is greater than b whose value is %d.",a,b);
+        } else if (b >= a) {
+           System.out.format("The value of a is %d and it is less than b whose value is %d.",a,b);
+        } else {
+           System.out.format("The value of a is %d and it is equal than b whose value is %d.",a,b);
+        }  
+    }
+
     } 
-}
+    
+ 
+
+
+
+
