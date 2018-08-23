@@ -108,6 +108,28 @@ public class Fundamentals_I
            System.out.format("The value of a is %d and it is equal than b whose value is %d.",a,b);
         }  
     }
+    
+   public static void compare(double a, double b){
+       if (a >= b) {
+           String output = String.format("The value of a is %d and it is greater than b whose value is %d.",a,b);
+           System.out.println(output);
+        } else if (b >= a) {
+           String output = String.format("The value of a is %d and it is less than b whose value is %d.",a,b);
+           System.out.println(output);
+        } else {
+           String output = String.format("The value of a is %d and it is equal than b whose value is %d.",a,b);
+           System.out.println(output);
+        }  
+    }    
+   
+   public static int evenOddZero(int a){
+       if (a%2 == 0){
+           int output = 1;
+            
+           
+        }
+       return output;
+    }
 
     } 
     
