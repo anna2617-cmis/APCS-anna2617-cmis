@@ -1,4 +1,7 @@
 import javax.swing.JOptionPane;
+import java.util.Scanner;
+import java.util.concurrent.ThreadLocalRandom;
+
 public class Fundamentals_I
 {
    public static void main (String[] args){
@@ -6,6 +9,7 @@ public class Fundamentals_I
        
        System.out.println(add(1,2)); 
        System.out.println(mul(1.5,2.3)); 
+       //end 
        
        int suba = 0; //define the variable 
        int diva = 0; 
@@ -20,7 +24,20 @@ public class Fundamentals_I
        System.out.format("subtraction %d%n",suba); 
        diva = div(num_1, num_2); 
        System.out.format("division %d%n",diva); 
+       // end 
        
+       Scanner Scan = new Scanner (System.in); 
+       System.out.println("type two numbers you whish to compare"); 
+       int in_1 = Scan.nextInt(); 
+       int in_2 = Scan.nextInt(); 
+       compare(in_1, in_2); 
+       //end 
+
+       System.out.println("\nType a number to see if it's even or odd"); 
+       int in_3 = Scan.nextInt(); 
+       System.out.println(evenOddZero(in_3));
+       //end 
+    
     }
     
    public static void dataTypes(){
@@ -110,28 +127,41 @@ public class Fundamentals_I
     }
     
    public static void compare(double a, double b){
+       String output = "";
        if (a >= b) {
-           String output = String.format("The value of a is %d and it is greater than b whose value is %d.",a,b);
-           System.out.println(output);
+           output = String.format("The value of a is %f and it is greater than b whose value is %f.",a,b);
         } else if (b >= a) {
-           String output = String.format("The value of a is %d and it is less than b whose value is %d.",a,b);
-           System.out.println(output);
+           output = String.format("The value of a is %f and it is less than b whose value is %f.",a,b);
         } else {
-           String output = String.format("The value of a is %d and it is equal than b whose value is %d.",a,b);
-           System.out.println(output);
+           output = String.format("The value of a is %f and it is equal than b whose value is %f.",a,b);
         }  
+       System.out.println(output);
     }    
    
-   public static int evenOddZero(int a){
-       if (a%2 == 0){
-           int output = 1;
-            
-           
+   public static int evenOddZero(int a){ 
+       int output = 0; 
+       if (a == 0){
+           output = 0;
+        }else if (a%2 == 0){
+           output = 1;  
+        } else if (a%2 ==1){
+           output = -1;
         }
        return output;
     }
-
-    } 
+    
+   public static void squareTable(){
+       for(int out=1; out<11; out++){
+          int outsq = out * out;
+          int outram = ThreadLocalRandom.current().nextInt(out, outsq + 1);
+          //(int)(Math.random() * ((max - min) + 1)) + min
+          System.out.format("%d\t%d\t%d\n", out, outsq, outram); 
+       }
+   }
+}
+    
+    
+    
     
  
 
