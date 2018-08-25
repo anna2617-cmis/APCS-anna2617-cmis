@@ -37,7 +37,8 @@ public class Fundamentals_I
        int in_3 = Scan.nextInt(); 
        System.out.println(evenOddZero(in_3));
        //end 
-    
+       
+       System.out.println(triangle(19)); 
     }
     
    public static void dataTypes(){
@@ -157,6 +158,23 @@ public class Fundamentals_I
           //(int)(Math.random() * ((max - min) + 1)) + min
           System.out.format("%d\t%d\t%d\n", out, outsq, outram); 
        }
+   }
+   
+   public static int triangle(int a){
+       int tri = 0;
+       for(a=a; a>0; a--){
+           tri = tri + a;  
+        }
+       return tri; 
+   }
+    
+   public static int pyramid(int a){
+       int py = 0; 
+       while (a > 0) {
+           py = py + (a*a);
+           a--; 
+       }
+       return py;
    }
 }
     
