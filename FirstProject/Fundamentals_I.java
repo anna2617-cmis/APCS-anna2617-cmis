@@ -163,7 +163,7 @@ public class Fundamentals_I
    public static int triangle(int a){
        int tri = 0;
        for(a=a; a>0; a--){
-           tri = tri + a;  
+           tri += a;  
         }
        return tri; 
    }
@@ -171,7 +171,7 @@ public class Fundamentals_I
    public static int pyramid(int a){
        int py = 0; 
        while (a > 0) {
-           py = py + (a*a);
+           py += a*a;
            a--; 
        }
        return py;
