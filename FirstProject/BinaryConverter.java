@@ -21,14 +21,37 @@ public class BinaryConverter
     public static String dec2bin(int dec){
         int pow = 0;
         String output = "";
-        for (int a = 31; a >= 0; a--){
-            if (dec - Math.pow(2, a) >= 0 ){
-                output += 1;
-                dec -= Math.pow(2, a);
-            }else if  (dec - Math.pow(2, a) < 0 ){
-                output += 0;
+        if (dec < 0){
+            dec = -dec;
+            if (dec % 2 == 1){
+                dec -= 1;
             }
+            for (int a = 31; a >= 0; a--){
+                if (dec - Math.pow(2, a) >= 0 ){
+                    output += 0;
+                    dec -= Math.pow(2, a);
+                }else if  (dec - Math.pow(2, a) < 0 ){
+                    output += 1;
+                }
+            }
+            if (dec % 2 == 0){
+                for (int b = output.length(); output.charAt(b)=='1'; b--){
+                    output.chartAt(b)=0; 
+                }      
+                str.cartAt(b-1)=1; 
+            }
+        }else {
+            for (int a = 31; a >= 0; a--){
+                if (dec - Math.pow(2, a) >= 0 ){
+                    output += 1;
+                    dec -= Math.pow(2, a);
+                }else if  (dec - Math.pow(2, a) < 0 ){
+                    output += 0;
+                }
+            }              
         }
+
+
         /*
          * Takes an int as an argument and returns a String representation
          * of the 32 bit binary.
