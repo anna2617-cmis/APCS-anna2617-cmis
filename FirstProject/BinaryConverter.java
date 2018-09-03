@@ -35,10 +35,11 @@ public class BinaryConverter
                 }
             }
             if (dec % 2 == 0){
+                String new_out = "";
                 for (int b = output.length(); output.charAt(b)=='1'; b--){
-                    output.chartAt(b)=0; 
+                    new_out = output.substring(0,b-1)+"0"+output.substring(b);
                 }      
-                str.cartAt(b-1)=1; 
+                output = new_out; 
             }
         }else {
             for (int a = 31; a >= 0; a--){
