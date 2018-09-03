@@ -8,24 +8,21 @@ public class BinaryConverter
         System.out.println(dec2bin(in_2));
 
     }
-    
+
     public static int bin2dec(String bin){
         /*
          * Takes a String that looks like a 32-bit binary number and returns
          * the equivalent int value
          */
-        
+
         return 0;
     }
-    
+
     public static String dec2bin(int dec){
         int pow = 0;
         String output = "";
         if (dec < 0){
             dec = -dec;
-            if (dec % 2 == 1){
-                dec -= 1;
-            }
             for (int a = 31; a >= 0; a--){
                 if (dec - Math.pow(2, a) >= 0 ){
                     output += 0;
@@ -35,11 +32,22 @@ public class BinaryConverter
                 }
             }
             if (dec % 2 == 0){
-                String new_out = "";
-                for (int b = output.length(); output.charAt(b)=='1'; b--){
-                    new_out = output.substring(0,b-1)+"0"+output.substring(b);
+                for (int b = output.length(); output.charAt(b-1)=='1'; b--){
+                    output = output.substring(0,b-1)+"0"+output.substring(b);
                 }      
-                output = new_out; 
+                boolean e = true;
+                int c = output.length();
+                while ( e == true){ 
+                    int d = output.charAt(c-1); 
+                     
+                    if (d =='1'){
+                        output = output.substring(0,c+1)+"1"+output.substring(c);
+                        e = false; 
+                    }
+                    c--;
+                }
+            } else if (dec % 2 == 1){
+                output = output.substring(0,31)+"1"+output.substring(31);
             }
         }else {
             for (int a = 31; a >= 0; a--){
@@ -51,12 +59,6 @@ public class BinaryConverter
                 }
             }              
         }
-
-
-        /*
-         * Takes an int as an argument and returns a String representation
-         * of the 32 bit binary.
-         */
         return output;
     }
 }
