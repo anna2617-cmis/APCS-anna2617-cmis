@@ -14,24 +14,21 @@ public class BinaryConverter
     public static int bin2dec(String bin){
         int output = 0; 
         if (bin.charAt(0) == '0'){
-            for (int a = 0; a < 32; a++){
-
+            int b = 0;
+            for (int a = 31; a >= 0; a--){
+                int c = (int)Math.pow(2, b);        
                 if (bin.charAt(a) == '1'){
-                    int b = 1; 
-                    output += Math.pow(2, b);
-                    b++; 
-                } else if (bin.charAt(a) == '0'){
-                    output += 0;
+                    
+                    output += c;
+                    
                 }
-
+                b++; 
             }
 
         }else if (bin.charAt(0) == '1'){
-            int c = 0; 
+            
             String new_bin = "";
-            while (c < 32){
-                
-            }
+
         }
 
         return output;
@@ -80,3 +77,6 @@ public class BinaryConverter
         return output;
     }
 }
+
+
+
