@@ -8,7 +8,6 @@ public class BinaryConverter
         System.out.println(dec2bin(in_1));
         String in_2 = Scan.next(); 
         System.out.println(bin2dec(in_2));
-
     }
 
     public static int bin2dec(String bin){

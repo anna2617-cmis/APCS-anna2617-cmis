@@ -12,7 +12,7 @@ public class Checkerboard {
     public static String checkerBoard(int h, int w){
         String output = "";
         String mid = "";
-        int num = (int)(Math.random() * ((9 - 0) + 1)) + 1;
+        int num = (int)(Math.random() * 10); 
         int roll = (int)(Math.random() * ((h - 1) + 1)) + 1;
         int column = (int)(Math.random() * ((w - 1) + 1)) + 1;
         for (int a = 0; a <= h + 1; a++){
