@@ -16,33 +16,18 @@ public class Foundamentals_I_Quiz
     }
 
     public static int method1(int a, int b, int c){
-        int poduct = 0; 
-        int max1 = 0; 
-        int max2 = 0; 
-        if (a >= b && a >= c){
-            max1 = a; 
-            if (b >= c){
-                max2 = b; 
-            }else{
-                max2 = c; 
-            }
-        }else if (b >= a && b >= c){
-            max1 = b; 
-            if (a >= c){
-                max2 = a; 
-            }else{
-                max2 = c; 
-            }
-        }else if (c >= a && c >= b){
-            max1 = c; 
-            if (b >= a){
-                max2 = b; 
-            }else{
-                max2 = a; 
-            }
+        int output = 0; 
+        int p1 = a * b; 
+        int p2 = b * c; 
+        int p3 = a * c; 
+        if (p1 >= p2 && p1 >= p3){
+            output = p1; 
+        }else if (p2 >= p1 && p2 >= p3){
+            output = p2;
+        }else{
+            output = p3;
         }
-        poduct = max1 * max2; 
-        return poduct; 
+        return output; 
     }
 
     public static int method2(int a, int b){
