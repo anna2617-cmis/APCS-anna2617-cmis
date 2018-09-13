@@ -31,7 +31,7 @@ public class MyWorld extends World
 
     public void initLevel1(){
         initBoard();
-        addBlocks(0.01);
+        addBlocks(0.1);
         addEndZone();
     }
 
