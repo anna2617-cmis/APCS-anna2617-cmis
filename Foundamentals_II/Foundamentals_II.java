@@ -7,7 +7,6 @@ public class Foundamentals_II
         double[] ar_2 = {2.3, 3.3, 12.2, 2.4, 5.3}; 
         String[] ar_3 = {"a", "s", "d", "f", "g"}; 
         System.out.format("The first integer is %d, the third double is %f, the fifth string is %s.", ar_1[0], ar_2[2], ar_3[4]); 
-
     }
 
     public static void printArray(int[] array, boolean skip){
@@ -21,7 +20,6 @@ public class Foundamentals_II
                 System.out.print(array[a] + " ");
 
             }
-
     }
 
     public static void printArray(double[] array, boolean skip){
@@ -35,7 +33,6 @@ public class Foundamentals_II
                 System.out.print(array[a] + " ");
 
             }
-
     }
 
     public static void printArray(String[] array, boolean skip){
@@ -49,7 +46,6 @@ public class Foundamentals_II
                 System.out.print(array[a] + " ");
 
             }
-
     }
 
     public static void printArray(boolean[] array, boolean skip){
@@ -63,7 +59,6 @@ public class Foundamentals_II
                 System.out.print(array[a] + " ");
 
             }
-
     }
 
     public static int lastItem(int[] array){
@@ -113,10 +108,69 @@ public class Foundamentals_II
     public static int[] randomInts(int n, int min, int max){
         int[] output = new int[n];
         for (int a = 0; a < n; a++){
-            output[a] = (int) (Math.random * max) -min; 
+            output[a] = (int) (Math.random() * (max-min)) +min; 
         }
-        
         return output; 
     }
 
+    public static double[] randomDoubles(int n, double min, double max){
+        double[] output = new double[n];
+        for (int a = 0; a < n; a++){
+            output[a] = (Math.random() * (max-min)) +min; 
+        }
+        return output; 
+    }
+
+    public static int[] copy(int[] array){
+        int[] output = new int[array.length -1];
+        for (int a = 0; a < array.length-1; a ++){
+            output[a] = array[a]; 
+        }
+        return output; 
+    }
+
+    public static double[] copy(double[] array){
+        double[] output = new double[array.length -1];
+        for (int a = 0; a < array.length-1; a ++){
+            output[a] = array[a]; 
+        }
+        return output; 
+    }
+
+    public static String[] copy(String[] array){
+        String[] output = new String[array.length -1];
+        for (int a = 0; a < array.length-1; a ++){
+            output[a] = array[a]; 
+        }
+        return output; 
+    }
+
+    public static boolean[] copy(boolean[] array){
+        boolean[] output = new boolean[array.length -1];
+        for (int a = 0; a < array.length-1; a ++){
+            output[a] = array[a]; 
+        }
+        return output; 
+    }
+
+    public static int[] pairs(int n){
+        int[] output = new int[n * 2];
+        int b = 1; 
+        for (int a = 0 ; a < n*2-1; a+=2){
+            output[a] = b*2; 
+            output[a+1] = b*2; 
+            b++; 
+        }
+        return output; 
+    }
+    
+    public static int[] concat(int[] a, int[] b){
+        int[] output = new int[a.length + b.length];
+        for (int i = 0; i < a.length + b.length -1; i++){
+        
+        } 
+        
+        return output; 
+    }
+    
 }
