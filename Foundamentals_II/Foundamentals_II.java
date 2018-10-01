@@ -148,8 +148,8 @@ public class Foundamentals_II
     }
 
     public static boolean[] copy(boolean[] array){
-        boolean[] output = new boolean[array.length -1];
-        for (int a = 0; a < array.length-1; a ++){
+        boolean[] output = new boolean[array.length];
+        for (int a = 0; a < array.length; a ++){
             output[a] = array[a]; 
         }
         return output; 
@@ -181,7 +181,27 @@ public class Foundamentals_II
     
     public static int[] merge(int[] a, int[] b){
         int[] output = new int[a.length + b.length];
-        
+        int same = 0;
+        int bigger = 0; 
+        int [] bigger_array = new int [0]; 
+        int k = 0; 
+        if (a.length >= b.length){
+            same = b.length; 
+            bigger = a.length; 
+            bigger_array = a;
+        }else {
+            same = a.length; 
+            bigger = b.length; 
+            bigger_array = b; 
+        }
+        for (int i = 0; i < same; i++){
+            output[2*i] = a[i]; 
+            output[2*i+1] = b[i]; 
+        }
+        for (int j = same*2-1; j< a.length + b.length; j++){
+            output[j] = bigger_array[same-1]; 
+            same ++; 
+        }
         return output; 
     }
 }
