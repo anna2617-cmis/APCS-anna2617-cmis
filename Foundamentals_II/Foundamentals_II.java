@@ -7,9 +7,7 @@ public class Foundamentals_II
         double[] ar_2 = {2.3, 3.3, 12.2, 2.4, 5.3}; 
         String[] ar_3 = {"a", "s", "d", "f", "g"}; 
         System.out.format("The first integer is %d, the third double is %f, the fifth string is %s.", ar_1[0], ar_2[2], ar_3[4]); 
-        
     }
-    
 
     public static void printArray(int[] array, boolean skip){
         if(skip == false){
@@ -18,9 +16,7 @@ public class Foundamentals_II
             }
         }else 
             for (int a = 0; a < array.length; a++){
-
                 System.out.print(array[a] + " ");
-
             }
     }
 
@@ -31,9 +27,7 @@ public class Foundamentals_II
             }
         }else 
             for (int a = 0; a < array.length; a++){
-
                 System.out.print(array[a] + " ");
-
             }
     }
 
@@ -44,9 +38,7 @@ public class Foundamentals_II
             }
         }else
             for (int a = 0; a < array.length; a+=2){
-
                 System.out.print(array[a] + " ");
-
             }
     }
 
@@ -57,9 +49,7 @@ public class Foundamentals_II
             }
         }else
             for (int a = 0; a < array.length; a+=2){
-
                 System.out.print(array[a] + " ");
-
             }
     }
 
@@ -165,7 +155,7 @@ public class Foundamentals_II
         }
         return output; 
     }
-    
+
     public static int[] concat(int[] a, int[] b){
         int[] output = new int[a.length + b.length];
         int c = 0; 
@@ -178,7 +168,7 @@ public class Foundamentals_II
         }
         return output; 
     }
-    
+
     public static int[] merge(int[] a, int[] b){
         int[] output = new int[a.length + b.length];
         int same = 0;
@@ -203,5 +193,14 @@ public class Foundamentals_II
             same ++; 
         }
         return output; 
+    }
+
+    public static void reverse(int[] array){
+        for(int i = 0; i < array.length / 2; i++)
+        {
+            int temp = array[i];
+            array[i] = array[array.length - i - 1];
+            array[array.length - i - 1] = temp;
+        }
     }
 }
