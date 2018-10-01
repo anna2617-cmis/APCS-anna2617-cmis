@@ -15,7 +15,7 @@ public class Foundamentals_II
                 System.out.print(array[a] + " "); 
             }
         }else 
-            for (int a = 0; a < array.length; a++){
+            for (int a = 0; a < array.length; a+=2){
                 System.out.print(array[a] + " ");
             }
     }
@@ -26,7 +26,7 @@ public class Foundamentals_II
                 System.out.print(array[a] + " "); 
             }
         }else 
-            for (int a = 0; a < array.length; a++){
+            for (int a = 0; a < array.length; a+=2){
                 System.out.print(array[a] + " ");
             }
     }
@@ -198,9 +198,36 @@ public class Foundamentals_II
     public static void reverse(int[] array){
         for(int i = 0; i < array.length / 2; i++)
         {
-            int temp = array[i];
+            int temp = array[i]; 
             array[i] = array[array.length - i - 1];
             array[array.length - i - 1] = temp;
         }
+        printArray(array, false);
     }
+
+    public static int[] subArray(int[] array, int start, int stop){
+        int[] output = new int[stop - start]; 
+        int a = 0; 
+        for (int i = start; i < stop; i++){
+            output[a] = array[i]; 
+            a++; 
+        }
+        return output; 
+    }
+
+    public static int[] compareArrays(int[] a, int[] b){
+        int sum1 = 0; 
+        int sum2 = 0; 
+        for(int i = 0; i < a.length; i++){
+            sum1 += a[i]; 
+        }
+        for(int j = 0; j < b.length; j++){
+            sum2 += b[j]; 
+        }
+        if (sum1 >= sum2){
+            return a;
+        }else
+            return b; 
+    }
+    
 }
