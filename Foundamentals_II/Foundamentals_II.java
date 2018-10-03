@@ -216,20 +216,36 @@ public class Foundamentals_II
     }
 
     public static int[] compareArrays(int[] a, int[] b){
-        int sum1 = 0; 
-        int sum2 = 0; 
-        for(int i = 0; i < a.length; i++){
-            sum1 += a[i]; 
+        int same = 0;
+        int [] array = new int [0]; 
+        int a_p = 0;
+        int b_p = 0; 
+        if (a.length >= b.length){
+            same = b.length; 
+        }else {
+            same = a.length; 
         }
-        for(int j = 0; j < b.length; j++){
-            sum2 += b[j]; 
+        for (int i = 0; i < same; i++){
+            if (a[i] > b[i]){
+                a_p += 1; 
+            }else if (b[i] > a [i]){
+                b_p += 1; 
+            }
         }
-        if (sum1 >= sum2){
-            return a;
-        }else
+        if (a.length > b.length){
+            a_p += a.length - same;  
+        }else if (b.length > a.length ){
+            b_p += b.length - same; 
+        }
+        if (a_p > b_p){
+            return a; 
+        }else if (b_p > a_p){
             return b; 
+        }else 
+            return array; 
     }
 
+<<<<<<< HEAD
     public static double[] maxMerge(double[] a, double[] b){
         double[] output = new double[0];
         int same = 0;
@@ -249,5 +265,31 @@ public class Foundamentals_II
             }
         }
         return output;
+=======
+    public static int[] minimize(int[] array, int threshold){
+        int[] output = new int [array.length]; 
+        for (int i = 0; i < array.length; i++){
+            if (array[i] > threshold){
+                output[i] = threshold; 
+            }else {
+                output[i] = array[i]; 
+            }
+        }
+        return output; 
+    }
+
+    public static void maximize(int[] array, int threshold){
+        for (int i = 0; i < array.length; i++){
+            if (array[i] < threshold){
+                array[i] = threshold; 
+            }
+        }
+        printArray(array, false);
+    }
+    
+    public static double[] maxMerge(double[] a, double[] b){
+    
+    
+>>>>>>> c090464565d6f0dc4b3ed83458aaa529e7468ba3
     }
 }

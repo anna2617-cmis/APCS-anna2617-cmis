@@ -36,8 +36,13 @@ comment24.params=array\ start\ stop
 comment24.target=int[]\ subArray(int[],\ int,\ int)
 comment25.params=a\ b
 comment25.target=int[]\ compareArrays(int[],\ int[])
+<<<<<<< HEAD
 comment26.params=a\ b
 comment26.target=double[]\ maxMerge(double[],\ double[])
+=======
+comment26.params=array\ threshold
+comment26.target=int[]\ minimize(int[],\ int)
+>>>>>>> c090464565d6f0dc4b3ed83458aaa529e7468ba3
 comment3.params=array\ skip
 comment3.target=void\ printArray(double[],\ boolean)
 comment4.params=array\ skip
