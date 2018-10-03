@@ -229,5 +229,25 @@ public class Foundamentals_II
         }else
             return b; 
     }
-    
+
+    public static double[] maxMerge(double[] a, double[] b){
+        double[] output = new double[0];
+        int same = 0;
+        int k = 0; 
+        if (a.length >= b.length){
+            same = b.length; 
+            output = a;
+        }else {
+            same = a.length; 
+            output = b;
+        }
+        for (int i = 0; i < same; i++){
+            if(a[i] > b[i]){
+                output[i] = a[i];
+            }else{
+                output[i] = b[i]; 
+            }
+        }
+        return output;
+    }
 }
