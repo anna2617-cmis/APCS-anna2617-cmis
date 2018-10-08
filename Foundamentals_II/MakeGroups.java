@@ -5,24 +5,32 @@ public class MakeGroups
         String[] output = new String[names.length / groupsize]; 
         int random = 0; 
         int b = 0; 
-        int[] out = new int[names.length / groupsize]; 
+        int[] out = new int[names.length]; 
+
         while (b < names.length/groupsize){ //which group 
-            System.out.print(random);
-            for (int c = 0; c < groupsize; c ++){ // num of names in group
-                for (int a = 0; a < names.length; a++){ // find each name
-                    random = (int)(Math.random() * (names.length-1)); 
-                    out[b] = random; 
+
+            for (int c = 0; c < groupsize; c ++){ // num of group 
+                int d = 0; 
+                random = (int)(Math.random() * (names.length)); 
+                out[d] = random; 
+                for (int i = 0; i < out.length; i++){
+                    if (random == out[i]){
+                        random = (int)(Math.random() * (names.length));
+
+                        out[d] = random; 
+                    }
+                }
+                for (int a = 0; a < names.length; a++){ // find each na
                     System.out.println(random);
-                    for (int i = 0; i < out.length; i++){
-                        if (random == i){
-                            random = (int)(Math.random() * (names.length-1)); 
+                    if (a == random){
+                        if(output[0] == null){
+                            output[b] += " "+ names[a]; 
+                        }
+                        else{
+                            output[b]+=" "+names[a]; 
                         }
                     }
-                    System.out.print(random);
-                    if (a == random){
-                        System.out.print(random);
-                        output[b]+=" "+names[a]; 
-                    }
+                    d++;
                 }
             }
             b++;
