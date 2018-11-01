@@ -116,8 +116,31 @@ public class Foundamentals_III
     
     public static double[][] shift(double[][] arr, int row){
         double [][] output = new double [arr.length][arr[0].length]; 
+        for (int a = 0; a < arr.length; a++){
+            if (a < row){
+                output[a] = arr[a]; 
+            }else if(a >= row && a != arr.length -1){
+                output[a+1] = arr[a]; 
+            }
+        }
+        for (int b = 0; b < arr[0].length; b++){
+            output[row][b] = Math.random() * 10; 
+        }
         return output; 
     }
     
+    public static double[][] tilt(double[][] arr){
+        double[][] output = new double [arr[0].length][arr.length]; 
+        for (int a = 0; a < arr.length; a++){
+            for (int b = 0; b < arr[0].length; b++){
+                output[b][a] = arr[a][b]; 
+            }
+        }
+        return output; 
+    }
     
+    public static int[] greatestrc(int[] arr){
+        int [] output = new int [0]; 
+        return output; 
+    }
 } 
