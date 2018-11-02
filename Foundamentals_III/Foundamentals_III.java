@@ -139,8 +139,45 @@ public class Foundamentals_III
         return output; 
     }
     
-    public static int[] greatestrc(int[] arr){
-        int [] output = new int [0]; 
-        return output; 
+    public static void greatestrc(int[][] arr){
+        int c_max = 0; 
+        int c_num = 0; 
+        int r_max = 0; 
+        int r_num = 0; 
+        String result = ""; 
+        for(int a = 0; a < arr.length; a++){
+            int c_sum = 0; 
+            for (int b = 0; b < arr[0].length; b++){
+                c_sum += arr[a][b]; 
+                if (c_sum > c_max){
+                    c_max = c_sum; 
+                    c_num = a; 
+                }
+            }
+        }
+        int[][] array = new int [arr[0].length][arr.length]; 
+        for (int a = 0; a < arr.length; a++){
+            for (int b = 0; b < arr[0].length; b++){
+                array[b][a] = arr[a][b]; 
+            }
+        }
+        for(int a = 0; a < array.length; a++){
+            int r_sum = 0; 
+            for (int b = 0; b < array[0].length; b++){
+                r_sum += arr[b][a]; 
+                if (r_sum > r_max){
+                    r_max = r_sum; 
+                    r_num = a; 
+                }
+            }
+        }
+        if( r_max > c_max){
+            result += "row " + r_num; 
+        }else {
+            result += "colum " + c_num;
+        }
+        System.out.print(result);
     }
+    
+    
 } 
