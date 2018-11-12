@@ -102,7 +102,7 @@ public class Foundamentals_III
         }
         return arr; 
     }
-    
+
     public static int[][] replace(int[][] array, int threshold, int newValue){
         for (int i = 0; i < array.length; i++){
             for (int j = 0; j < array[0].length; j++){
@@ -113,7 +113,7 @@ public class Foundamentals_III
         }
         return array; 
     }
-    
+
     public static double[][] shift(double[][] arr, int row){
         double [][] output = new double [arr.length][arr[0].length]; 
         for (int a = 0; a < arr.length; a++){
@@ -128,7 +128,7 @@ public class Foundamentals_III
         }
         return output; 
     }
-    
+
     public static double[][] tilt(double[][] arr){
         double[][] output = new double [arr[0].length][arr.length]; 
         for (int a = 0; a < arr.length; a++){
@@ -138,7 +138,7 @@ public class Foundamentals_III
         }
         return output; 
     }
-    
+
     public static void greatestrc(int[][] arr){
         int c_max = 0; 
         int c_num = 0; 
@@ -178,6 +178,26 @@ public class Foundamentals_III
         }
         System.out.print(result);
     }
-    
-    
+
+    public static int subarray(int[][] arr, int h, int w){
+        int count = 0; 
+        int max = 0; 
+        for (int d = 0; d < arr.length && d + h <= arr.length; d++){
+            count = 0;
+            for (int c = 0; c < arr[0].length && c + w <= arr[0].length; c++){
+                count = 0;
+                for (int a = 0; a < h; a++){
+                    for (int b = 0; b < w; b++){
+                        count += arr[a][b]; 
+                       
+                        if (count > max){
+                            max = count; 
+                            
+                        }
+                    }
+                }
+            }
+        }
+        return max; 
+    }
 } 
