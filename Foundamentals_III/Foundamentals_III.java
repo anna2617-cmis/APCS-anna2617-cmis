@@ -180,16 +180,14 @@ public class Foundamentals_III
     }
 
     public static int subarray(int[][] arr, int h, int w){
-        int count = 0; 
+        
         int max = 0; 
         for (int d = 0; d < arr.length && d + h <= arr.length; d++){
-            count = 0;
             for (int c = 0; c < arr[0].length && c + w <= arr[0].length; c++){
-                count = 0;
-                for (int a = 0; a < h; a++){
-                    for (int b = 0; b < w; b++){
+                int count = 0; 
+                for (int a = d; a < h+d; a++){
+                    for (int b = c; b < w+c; b++){
                         count += arr[a][b]; 
-                       
                         if (count > max){
                             max = count; 
                             
