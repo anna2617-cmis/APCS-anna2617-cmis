@@ -180,7 +180,7 @@ public class Foundamentals_III
     }
 
     public static int subarray(int[][] arr, int h, int w){
-        
+
         int max = 0; 
         for (int d = 0; d < arr.length && d + h <= arr.length; d++){
             for (int c = 0; c < arr[0].length && c + w <= arr[0].length; c++){
@@ -190,12 +190,43 @@ public class Foundamentals_III
                         count += arr[a][b]; 
                         if (count > max){
                             max = count; 
-                            
+
                         }
                     }
                 }
             }
         }
         return max; 
+    }
+
+    public static int ring(int[][] arr){
+        int sum = 0; 
+        for (int a = 0; a < arr.length; a++){
+            for (int b = 0; b < arr[0].length; b++){
+                if ( arr.length > 2){
+                    if ( a == 1 ){
+                        if ( b > 0 || b < arr[0].length - 1){
+                            sum += arr[a][b]; 
+                            System.out.println(sum); 
+                        }
+
+                    }
+                    if ( arr.length > 3 && a == arr.length - 2){
+                        if ( b > 0 || b < arr[0].length - 1){
+                            sum += arr[a][b]; 
+                            System.out.println(sum); 
+                        }
+
+                    }
+                    if (arr.length > 4 && a > 1 && a < arr.length - 3){
+                        if ( b == 1 || b == arr[0].length - 1){
+                            sum += arr[a][b]; 
+                            System.out.println(sum); 
+                        }
+                    }
+                }
+            }
+        }
+        return sum; 
     }
 } 
