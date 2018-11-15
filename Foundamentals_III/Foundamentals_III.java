@@ -201,32 +201,22 @@ public class Foundamentals_III
 
     public static int ring(int[][] arr){
         int sum = 0; 
-        for (int a = 0; a < arr.length; a++){
-            for (int b = 0; b < arr[0].length; b++){
-                if ( arr.length > 2){
-                    if ( a == 1 ){
-                        if ( b > 0 || b < arr[0].length - 1){
-                            sum += arr[a][b]; 
-                            System.out.println(sum); 
-                        }
-
-                    }
-                    if ( arr.length > 3 && a == arr.length - 2){
-                        if ( b > 0 || b < arr[0].length - 1){
-                            sum += arr[a][b]; 
-                            System.out.println(sum); 
-                        }
-
-                    }
-                    if (arr.length > 4 && a > 1 && a < arr.length - 3){
-                        if ( b == 1 || b == arr[0].length - 1){
-                            sum += arr[a][b]; 
-                            System.out.println(sum); 
-                        }
-                    }
+        int h_ring = 0; 
+        int w_ring = 0; 
+        for (int h = h_ring; h < arr.length - h_ring; h++){
+            for (int w = 0; w < arr[0].length; w++){
+                if (h == h_ring || h == arr.length - (h_ring + 1)){
+                    sum += arr[h][w]; 
+                    System.out.print(sum); 
+                }
+                if (h > h_ring || h < arr.length - (h_ring + 1)){
+                    
+                    
                 }
             }
         }
+        h_ring++; 
+        
         return sum; 
     }
 } 
