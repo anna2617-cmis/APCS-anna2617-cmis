@@ -210,13 +210,37 @@ public class Foundamentals_III
                     System.out.print(sum); 
                 }
                 if (h > h_ring || h < arr.length - (h_ring + 1)){
-                    
-                    
+
                 }
             }
         }
         h_ring++; 
-        
+
         return sum; 
+    }
+
+    public static int[][] sit(int[][] arr){
+        int[][] chart = new int [arr.length][arr[0].length]; 
+        for(int a = 0; a < arr.length; a++){
+            for (int b = 0; b < arr[0].length; b++){ 
+                int h = (int)(Math.random() * (arr.length));
+                int w = (int)(Math.random() * (arr[0].length));
+                if (chart[h][w] == 0 ){
+                    if ( h != a || w != b ){
+                        chart[h][w] = arr[a][b]; 
+                    } 
+                }
+                else{
+                    while(chart[h][w]!= 0 ){
+                        while ( h == a || w == b ){
+                            h = (int)(Math.random() * (arr.length));
+                            w = (int)(Math.random() * (arr[0].length));
+                        }
+                    }
+                    chart[h][w] = arr[a][b]; 
+                }
+            }
+        }
+        return chart; 
     }
 } 
