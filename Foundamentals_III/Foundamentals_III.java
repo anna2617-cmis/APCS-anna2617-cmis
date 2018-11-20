@@ -199,24 +199,37 @@ public class Foundamentals_III
         return max; 
     }
 
-    public static int ring(int[][] arr){
-        int sum = 0; 
-        int h_ring = 0; 
-        int w_ring = 0; 
-        for (int h = h_ring; h < arr.length - h_ring; h++){
-            for (int w = 0; w < arr[0].length; w++){
-                if (h == h_ring || h == arr.length - (h_ring + 1)){
-                    sum += arr[h][w]; 
-                    System.out.print(sum); 
-                }
-                if (h > h_ring || h < arr.length - (h_ring + 1)){
-
+    public static void ring(int[][] arr){
+        int ringNumber = 0; 
+        for (int h = 0; h < arr.length; h ++){
+            for (int w = 0; w < arr[0].length; w ++){
+                if (h == w){
+                    ringNumber ++; 
                 }
             }
         }
-        h_ring++; 
-
-        return sum; 
+        if (ringNumber % 2 == 0){
+            ringNumber = ringNumber/2; 
+        }else{
+            ringNumber = (ringNumber/2) + 1;  
+        }
+        int[] ringSum = new int [ringNumber]; 
+        for (int a = 0; a < ringNumber; a ++){
+            for (int col = a; col <= arr.length - (1 + a); col ++){
+                for (int row = a; row <= arr[0].length - (1 + a); row ++){
+                    if (col == a || col == arr.length - (1 + a)){
+                        ringSum[a] += arr[col][row]; 
+                    }else if (col > a && row == a){
+                        ringSum[a] += arr [col][a]; 
+                    }else if (col > a && row == arr[0].length - (1 + a)){
+                        ringSum[a] += arr [col][row]; 
+                    }
+                }
+            }
+        }
+        for (int x = 0; x < ringSum.length; x++){
+            System.out.print(">" + ringSum[x]); 
+        }
     }
 
     public static int[][] sit(int[][] arr){
