@@ -1,4 +1,4 @@
-public class Foundamentals_III
+public class Fundamentals_III
 {
     public static void main(String[] args){
         int[][] array_1 = new int[5][5];
