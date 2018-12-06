@@ -14,11 +14,11 @@ public class BubbleSort
         while (sort){
             int swap = 0; 
             for (int a = 0; a < array.length - 1; a++){
-                if (array[a] < array[a+1]){
+                if (array[a] > array[a+1]){
                     small = array[a+1]; 
                     big = array[a]; 
-                    array[a+1] = small; 
-                    array[a] = big; 
+                    array[a+1] = big; 
+                    array[a] = small; 
                     swap += 1; 
                 }
             }

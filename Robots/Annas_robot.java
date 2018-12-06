@@ -22,14 +22,20 @@ public class Annas_robot extends Robot
      * isClearDown() => true means no block down
      */
     public void behave(){
-        if(!isClearUp()){
-            left();
-        }else if(!isClearLeft()){
-            up(); 
-        }else if (!isClearDown()){
-            left(); 
-        }else if (! isClearRight()){
-            up(); 
+        if (getData(0) == 0){
+            if(!isClearUp() && !isClearLeft()){
+                setData(getOldX(), getOldY());
+            }
+            else if (!isClearUp()){
+                left(); 
+            }else if (!isClearLeft()){
+                up(); 
+            }else if (!isClearRight()){
+                up(); 
+            }else{
+                left(); 
+            }
         }
+
     }
 }

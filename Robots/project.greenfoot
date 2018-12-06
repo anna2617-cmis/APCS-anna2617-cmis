@@ -1,5 +1,5 @@
 #Greenfoot properties
-#Fri Oct 12 11:57:10 ICT 2018
+#Thu Dec 06 10:21:09 ICT 2018
 dependency9.type=UsesDependency
 target4.type=AbstractTarget
 target8.showInterface=false
@@ -35,8 +35,8 @@ dependency2.to=Goal
 target1.width=80
 dependency5.type=UsesDependency
 editor.fx.0.y=409
-target2.typeParameters=
 editor.fx.0.x=0
+target2.typeParameters=
 target8.height=50
 dependency3.to=MyWorld
 target3.showInterface=false
@@ -44,13 +44,13 @@ target6.name=RobotTemplate
 dependency4.to=Barrier
 target7.showInterface=false
 dependency5.to=Goal
-target8.typeParameters=
 target1.showInterface=false
+target8.typeParameters=
 class.BobI.superclass=Robot
-target5.showInterface=false
 dependency6.to=Robot
-target7.type=ClassTarget
+target5.showInterface=false
 target6.width=130
+target7.type=ClassTarget
 target6.height=50
 dependency7.to=RobotTemplate
 dependency6.from=MyWorld
@@ -62,8 +62,8 @@ target7.typeParameters=
 dependency6.type=UsesDependency
 target1.type=ClassTarget
 target7.y=130
-target7.x=100
 dependency9.to=BobI
+target7.x=100
 class.NathanI.superclass=Robot
 editor.swing.0.width=702
 target7.name=RobotTemplate
