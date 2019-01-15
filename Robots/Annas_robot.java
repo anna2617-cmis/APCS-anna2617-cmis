@@ -24,7 +24,7 @@ public class Annas_robot extends Robot
     public void behave(){
         if (getData(0) == 0){
             if(!isClearUp() && !isClearLeft()){
-                setData(getOldX(), getOldY());
+                setData(0, 1);
             }
             else if (!isClearUp()){
                 left(); 
@@ -35,7 +35,24 @@ public class Annas_robot extends Robot
             }else{
                 left(); 
             }
+        }else if (getData(1) == 0){
+            if (!isClearUp() && !isClearRight()){
+                setData(1, 1);
+                down(); 
+            }
+            right(); 
+            setData(2, getData(2)+1); 
+        }else if (getData(3) < getData(2)){
+            if (!isClearLeft() && getData(3) != getData(2)){
+                setData(9, 1);
+            }else if (!isClearLeft() && getData(3) == getData(2)){
+                setData(3, 1); 
+                down(); 
+            }
+            left(); 
+        
         }
+       
 
     }
 }
