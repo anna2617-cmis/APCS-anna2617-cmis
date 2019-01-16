@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=ReursiveEx
+comment1.params=a\ b
+comment1.target=int\ mul(int,\ int)
+comment2.params=a\ b
+comment2.target=int\ div(int,\ int)
+numComments=3
