@@ -1,4 +1,4 @@
-public class ReursiveEx
+public class ReursivePractice 
 {
     public static int mul(int a, int b){
         if (b == 1){
@@ -13,7 +13,7 @@ public class ReursiveEx
     public static int div(int a, int b){
         if (b == 1){
             return a; 
-        }else if (a == 0){
+        }else if (a <= 0){
             return 0; 
         }else{
             return 1 + div(a - b, b) ; 
