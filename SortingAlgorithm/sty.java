@@ -8,18 +8,26 @@ public class sty
 
         int a = 0; 
         int b = 0; 
-        int c = 0; 
         int[] arr = new int [front.length + back.length]; 
-        while ( a + b <= front.length + back.length){
-            if (front[a] < back[b] && a < front.length){ // second time loop front[a] don't exist anymore 
-                
-                arr[c] = front[a]; 
-                a ++; 
-            }else if (b < back.length){
-                arr[c] = back[b]; 
-                b ++; 
+        for(int c = 0; c < arr.length; c++ ){
+            if (a < front.length && b < back.length){ // second time loop front[a] don't exist anymore 
+                if (front[a] < back[b] ){
+                    arr[c] = front[a]; 
+                    a ++; 
+                }else{
+                    arr[c] = back[b]; 
+                    b ++; 
+                }
             }
-            c ++; 
+            else if (a == front. length || b == back.length){
+                if (a > b){
+                    arr[c] = back[b];
+                    b++; 
+                }else{
+                    arr[c] = front[a]; 
+                    a++; 
+                }
+            }
         }
         return arr; 
 
