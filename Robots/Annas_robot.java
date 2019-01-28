@@ -20,6 +20,14 @@ public class Annas_robot extends Robot
      * isClearLeft() => true means no block to the left
      * isClearUp() => true means no block up
      * isClearDown() => true means no block down
+     * 0 = left corner
+     * 1 = width 
+     * 2 = temp width 
+     * 3 = go left 
+     * 4 = go right 
+     * 5 = shall it go down or not 
+     * 8 = count the width 
+     * 9 = hit the box 
      */
     public void behave(){
         if (getData(0) == 0){
@@ -35,24 +43,39 @@ public class Annas_robot extends Robot
             }else{
                 left(); 
             }
-        }else if (getData(1) == 0){
-            if (!isClearUp() && !isClearRight()){
-                setData(1, 1);
-                down(); 
-            }
+        }else if (getData(8) == 0){
             right(); 
-            setData(2, getData(2)+1); 
-        }else if (getData(3) < getData(2)){
-            if (!isClearLeft() && getData(3) != getData(2)){
-                setData(9, 1);
-            }else if (!isClearLeft() && getData(3) == getData(2)){
-                setData(3, 1); 
-                down(); 
+            setData(1, getData(1)+1); 
+            if (!isClearRight()){
+                setData(8, 1); 
             }
-            left(); 
-        
-        }
-       
-
+        }else if (getData(2) <= getData(1) && getData(9) == 0){
+            if (getData(3) == 1 && getData(2) != getData (1)){
+                setData(2, getData(2)+1);
+                left(); 
+                 
+            }else if (getData(4) == 1 && getData(2) != getData (1)){
+                setData(2, getData(2)+1);
+                right(); 
+            }else if (!isClearLeft()){
+                if (getData(2) < getData(1)){
+                    setData(9, 1); 
+                }
+                setData(3, 0); 
+                setData(4, 1); 
+                setData(2, 0);
+                down(); 
+                
+            }else if (!isClearRight()){
+                if (getData(2) < getData(1)){
+                    setData(9, 1); 
+                }
+                setData(3, 1); 
+                setData(4, 0); 
+                setData(2, 0);
+                down(); 
+                
+            }
+        } 
     }
 }
