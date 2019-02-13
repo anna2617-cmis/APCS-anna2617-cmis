@@ -7,11 +7,30 @@ public class Thing
     //private instance variable is only accessible inside this class definition
     
     //initial set up of the instance 
+    
+    //constructor method cd
     public Thing(){
         this.field1 = 420; 
         this.field2 = 8.5; 
         this.field3 = true; 
         this.field4 = "bye"; 
+    }
+    
+    public Thing(int field1value){
+        this(); // call the method that does not take in arguement
+        this.field1 = field1value; 
+    }
+    public Thing(double field2value){
+        this(); 
+        this.field2 = field2value;
+    }
+    public Thing(boolean field3value){
+        this(); 
+        this.field3 = field3value;
+    }
+    public Thing(String field4value){
+        this(); 
+        this.field4 = field4value;
     }
     
     //setter mathod
