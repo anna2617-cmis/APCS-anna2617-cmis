@@ -8,7 +8,7 @@ public class Thing
     
     //initial set up of the instance 
     
-    //constructor method cd
+    //constructor method 
     public Thing(){
         this.field1 = 420; 
         this.field2 = 8.5; 
