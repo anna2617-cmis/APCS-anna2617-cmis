@@ -14,8 +14,9 @@ public class Song
 
     public Song(int a, double b, boolean c){
         this(); 
-        this.preference = true; 
-        this.title = "Unreavel"; 
+        this.preference = c; 
+        this.likes = a; 
+        this.length = b; 
     }
 
     public String toString(){
