@@ -4,4 +4,6 @@ comment1.params=
 comment1.target=Student()
 comment2.params=a\ b\ c
 comment2.target=Student(java.lang.String,\ java.lang.String,\ double)
-numComments=3
+comment3.params=
+comment3.target=java.lang.String\ toString()
+numComments=4
