@@ -15,4 +15,8 @@ public class Anime
         this.title = a; 
         this.rating = b; 
     }
+    
+    public String toString(){
+        return String.format("%ntitle:  %s%nnumber of ep:  %d%nrating:  %f",title, epNum, rating);  
+    }  
 }

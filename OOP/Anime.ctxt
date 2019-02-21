@@ -4,4 +4,6 @@ comment1.params=
 comment1.target=Anime()
 comment2.params=a\ b
 comment2.target=Anime(java.lang.String,\ double)
-numComments=3
+comment3.params=
+comment3.target=java.lang.String\ toString()
+numComments=4
