@@ -2,7 +2,6 @@ public class Card
 {
     private int suit; 
     private int rank; 
-    private int num; 
     private boolean faceUp;
 
     public Card(){
@@ -15,14 +14,8 @@ public class Card
         this.rank = newRank; 
     }
 
-    public int getNum(){ 
-        if (num == 0){
-            return 11; 
-        }else if (num < 10){
-            return num; 
-        }else{
-            return 10; 
-        }
+    public int getRank(){ 
+        return rank;
     } 
 
     public String toString(){

@@ -2,7 +2,6 @@ import java.util.*;
 public class Hand
 {
     private List<Card> cards; 
-    private int score;
 
     public Hand(){
         cards = new ArrayList<Card>(); 
@@ -12,9 +11,21 @@ public class Hand
         cards.add(card); 
     }
 
-    public int getValue(){
+    public int getScore(){
+        int score = 0;
         for (Card card : cards){
-            score += card.getNum(); 
+            int rank = card.getRank();
+            if (rank == 0){
+                if(score + 11 > 21){
+                    score += 1; 
+                }else{
+                    score += 11; 
+                }
+            } else if (rank < 10){
+                score += rank + 1; 
+            }else{
+                score += 10; 
+            }
         }
         return score; 
     }
