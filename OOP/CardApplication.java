@@ -25,18 +25,22 @@ public class CardApplication
         }
         /**
         for (Card cards : deck){
-            System.out.println(cards); 
+        System.out.println(cards); 
         }
-        **/
+         **/
         Hand hand = new Hand(); 
         int score = hand.getScore();
         while(score < 21){
             hand.addCard(deck[(int)(Math.random()*52)]);
             score = hand.getScore();
         }
-         
-        
-        System.out.println(score);
-        System.out.println(hand); 
+
+        //System.out.println(score);
+        //System.out.println(hand); 
+
+        Deck decks = new Deck(2); 
+        while (decks.nCards() > 0){
+            System.out.println(decks.draw()); 
+        }
     }
 }
