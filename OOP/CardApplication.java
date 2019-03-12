@@ -23,11 +23,12 @@ public class CardApplication
                 num ++; 
             }
         }
-        /**
+        Deck decka = deck.shuffle(); 
+        
         for (Card cards : deck){
-        System.out.println(cards); 
+            System.out.println(cards); 
         }
-         **/
+
         Hand hand = new Hand(); 
         int score = hand.getScore();
         while(score < 21){
@@ -37,10 +38,11 @@ public class CardApplication
 
         //System.out.println(score);
         //System.out.println(hand); 
-
+        /**
         Deck decks = new Deck(2); 
         while (decks.nCards() > 0){
             System.out.println(decks.draw()); 
         }
+        **/
     }
 }

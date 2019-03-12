@@ -24,11 +24,13 @@ public class Deck
     }
 
     public void shuffle(){
-        int indexOne = (int)(Math.random() * cards.size()); 
-        int indexTwo = (int)(Math.random() * cards.size()); 
-        Card c1 = cards.get(indexOne); 
-        Card c2 = cards.get(indexTwo); 
-        cards.set(c1, indexTwo); 
-        cards.set(c2, indexOne);
+        for(int a = 0; a < 100; a++){
+            int indexOne = (int)(Math.random() * cards.size()); 
+            int indexTwo = (int)(Math.random() * cards.size()); 
+            Card c1 = cards.get(indexOne); 
+            Card c2 = cards.get(indexTwo); 
+            cards.set(indexTwo, c1); 
+            cards.set(indexOne, c2);
+        }
     }
 }
