@@ -1,48 +1,28 @@
+import java.util.*;
+import java.util.Scanner;
 public class CardApplication
 {
     public static void main(String[] args){
-        /**
-        Card[] Randomcards = new Card[52]; 
-        int num = 0; 
-        for (int a = 0; a < Randomcards.length; a++){
-        Card card = new Card(); 
-        for (int b = 0; b < num; b++){
-        if (Randomcards[b] == card){
-        card = new Card(); 
-        }
-        }
-        Randomcards[a] = card; 
-        num ++; 
-        }
-         **/
-        Card[] deck = new Card[52]; 
-        int num = 0; 
-        for (int a = 0; a < 4; a++){
-            for (int b = 0; b < 13; b++){
-                deck[num] = new Card(a, b);
-                num ++; 
-            }
-        }
-        Deck decka = deck.shuffle(); 
+        Deck deck = new Deck(2);
+        deck.shuffle(); 
         
-        for (Card cards : deck){
-            System.out.println(cards); 
-        }
+        Scanner Scan = new Scanner (System.in); 
+        int nHands = Scan.nextInt();
 
-        Hand hand = new Hand(); 
-        int score = hand.getScore();
-        while(score < 21){
-            hand.addCard(deck[(int)(Math.random()*52)]);
-            score = hand.getScore();
+        List<Hand> hands = new ArrayList<Hand>();
+        while (nHands -- > 0){
+            Hand tempHand = new Hand(); 
+            for (int b = 0; b < 2; b++){
+                tempHand.addCard(deck.draw());
+            }
+            hands.add(tempHand); 
         }
-
-        //System.out.println(score);
-        //System.out.println(hand); 
-        /**
-        Deck decks = new Deck(2); 
-        while (decks.nCards() > 0){
-            System.out.println(decks.draw()); 
-        }
-        **/
+        System.out.println(hands); 
+        
+        System.out.format("dealer vs player 1 result: %s%n" +
+        "dealer vs player 2 result: %s%n" +
+        "dealer vs player 3 result: %s%n" +
+        "dealer vs player 4 result: %s%n" +
+        "dealer vs player 5 result: %s%n"); 
     }
 }

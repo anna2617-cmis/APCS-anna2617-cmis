@@ -11,7 +11,6 @@ public class Deck
                 }
             }
         }
-        System.out.println(cards.size()); 
     }
 
     public int nCards(){
@@ -24,13 +23,12 @@ public class Deck
     }
 
     public void shuffle(){
-        for(int a = 0; a < 100; a++){
-            int indexOne = (int)(Math.random() * cards.size()); 
+        for(int a = 0; a < cards.size(); a++){
             int indexTwo = (int)(Math.random() * cards.size()); 
-            Card c1 = cards.get(indexOne); 
+            Card c1 = cards.get(a); 
             Card c2 = cards.get(indexTwo); 
             cards.set(indexTwo, c1); 
-            cards.set(indexOne, c2);
+            cards.set(a, c2);
         }
     }
 }
