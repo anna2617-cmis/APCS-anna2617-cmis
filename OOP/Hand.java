@@ -30,10 +30,16 @@ public class Hand
         return score; 
     }
 
-    public String toString(){
+    public String toString(boolean isDealer){
         String out = ""; 
-        for (Card card : cards){
-            out += card.toString() + " "; // call the toString method in class Card
+        if(isDealer){
+            for (Card card : cards){
+                out += card.toString() + " "; 
+            }
+        }else{
+            for (Card card : cards){
+                out += card.toString() + " "; 
+            }
         }
         return out; 
     }
