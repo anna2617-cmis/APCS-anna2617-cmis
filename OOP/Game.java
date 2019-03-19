@@ -12,7 +12,7 @@ public class Game
     }
 
     public void setUp(){
-        System.out.println("*** Setup *** \n"); 
+        System.out.println("=== Setup === \n"); 
         deck = new Deck(5);
         deck.shuffle(); 
         for (int a = 0; a < 2; a++){
@@ -34,12 +34,16 @@ public class Game
     }
 
     public void playRound(){
-        System.out.println("*** Play Round ***");
+        System.out.println("=== Play Round === \n");
         for(Player player : players){
-            for (int a = 0; a < 2; a++){
+            while (player.getHand() <= 15){
                 player.draw(deck); 
             } 
             System.out.println(player);
         }
+        while(dealer.isDealerDraw() <= 5){
+            dealer.draw(deck); 
+        }
+        System.out.println(dealer); 
     }
 }

@@ -11,6 +11,30 @@ public class Hand
         cards.add(card); 
     }
 
+    public int getDealerDraw(){
+        boolean hide = true; 
+        int score = 0;
+        for (Card card : cards){
+            if(hide){
+                hide = false; 
+            }else{
+                int rank = card.getRank();
+                if (rank == 0){
+                    if(score + 11 > 21){
+                        score += 1; 
+                    }else{
+                        score += 11; 
+                    }
+                } else if (rank < 10){
+                    score += rank + 1; 
+                }else{
+                    score += 10; 
+                }
+            }
+        }
+        return score; 
+    } 
+
     public int getScore(){
         int score = 0;
         for (Card card : cards){

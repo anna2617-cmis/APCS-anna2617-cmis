@@ -23,8 +23,12 @@ public class Player
         return chips; 
     }
 
-    public Hand getHand(){
-        return hand; 
+    public int getHand(){
+        return hand.getScore(); 
+    }
+    
+    public int isDealerDraw(){
+        return hand.getDealerDraw(); 
     }
 
     public void draw(Deck deck){
