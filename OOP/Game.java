@@ -3,47 +3,43 @@ public class Game
 {
     private List<Player> players; 
     private Deck deck; 
+    private Player dealer; 
+
     public Game(){
         players = new ArrayList<Player>(); 
-        players.add(new Player(100000000)); 
+        deck = new Deck(5); 
+        dealer = new Player("Dealer", 1000000); 
     }
 
     public void setUp(){
-        deck = new Deck(1);
+        System.out.println("*** Setup *** \n"); 
+        deck = new Deck(5);
         deck.shuffle(); 
+        for (int a = 0; a < 2; a++){
+            dealer.draw(deck); 
+        }
+        System.out.println(dealer.toString(true)); 
+        for(Player player : players){
+            for (int a = 0; a < 2; a++){
+                player.draw(deck); 
+            } 
+            System.out.println(player);
+            player.bet();
+        }
     }
 
     public void addPlayer(){
-        players.add(new Player());
+        Player player = new Player("Player"+players.size(), 1000); 
+        players.add(player); 
     }
 
-    public String playRound(){
-
-    }
-
-    public String summary(){
-
-    }
-
-    public String toString(){
-        String out = ""; 
-        boolean isDealer = true; 
-        int playerNum = 1; 
+    public void playRound(){
+        System.out.println("*** Play Round ***");
         for(Player player : players){
-            if(isDealer){
-                out += String.format("Name: Dealer %n" +
-                    "Chips: %s%n Hand: %s%n", +
-                    player.getChip(), player.getHand());
-                    
-                isDealer = false; 
-            }else{
-                out += String.format("Name: Player%d: %n" +
-                    "Chips: %s%n Hand: %s%n", +
-                    playerNum, player.getChip(), player.getHand());
-                    
-                playerNum ++; 
-            }
+            for (int a = 0; a < 2; a++){
+                player.draw(deck); 
+            } 
+            System.out.println(player);
         }
-        return out; 
     }
 }

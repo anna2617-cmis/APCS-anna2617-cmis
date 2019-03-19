@@ -6,7 +6,6 @@ public class CardApplication
        game.addPlayer(); 
        game.addPlayer(); 
        game.setUp(); 
-       game.playRound(); 
-       game.summary(); 
+
     }
 }
