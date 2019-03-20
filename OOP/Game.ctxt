@@ -8,4 +8,6 @@ comment3.params=
 comment3.target=void\ addPlayer()
 comment4.params=
 comment4.target=void\ playRound()
-numComments=5
+comment5.params=
+comment5.target=void\ summary()
+numComments=6

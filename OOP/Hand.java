@@ -37,20 +37,25 @@ public class Hand
 
     public int getScore(){
         int score = 0;
+        int numA = 0; 
         for (Card card : cards){
             int rank = card.getRank();
             if (rank == 0){
-                if(score + 11 > 21){
-                    score += 1; 
-                }else{
-                    score += 11; 
-                }
+                numA ++; 
             } else if (rank < 10){
                 score += rank + 1; 
             }else{
                 score += 10; 
             }
         }
+        while(numA -- > 0){
+            if (score + 11 > 21){
+                score += 1; 
+            }else{
+                score += 11; 
+            }
+        }
+        
         return score; 
     }
 

@@ -8,7 +8,7 @@ public class Game
     public Game(){
         players = new ArrayList<Player>(); 
         deck = new Deck(5); 
-        dealer = new Player("Dealer", 1000000); 
+        dealer = new Player("Dealer", 1000000, 0); 
     }
 
     public void setUp(){
@@ -29,7 +29,7 @@ public class Game
     }
 
     public void addPlayer(){
-        Player player = new Player("Player"+players.size(), 1000); 
+        Player player = new Player("Player"+players.size(), 1000, 10); 
         players.add(player); 
     }
 
@@ -45,5 +45,14 @@ public class Game
             dealer.draw(deck); 
         }
         System.out.println(dealer); 
+    }
+
+    public void summary(){
+        System.out.println("=== Summary === \n"); 
+        System.out.println(dealer);
+        for(Player player : players){
+            System.out.println(player);
+            System.out.println(player.win(dealer)); 
+        }
     }
 }
