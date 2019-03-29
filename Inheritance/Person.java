@@ -1,7 +1,6 @@
 public class Person extends Entity
 {
-    private double age; 
-
+    
     public Person(){
         super("default");
     }
@@ -10,6 +9,12 @@ public class Person extends Entity
         super(name);
     } 
 
+    public void setAge(int age){
+       if (age >= 160){
+           super.setAge(age); 
+       }
+    } // rewrite the setter method in entity
+    
     public String toString(){
         String out = super.toString(); 
         out += "--> Person"; 

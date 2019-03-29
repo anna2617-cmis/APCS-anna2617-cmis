@@ -9,10 +9,19 @@ public class Idea extends Entity
     public Idea(String name){
         super(name);
     } 
+    
+    public void setFollowers(int followers){
+        this.followers = followers; 
+    }
 
+    public int getFollowers(){
+        return followers; 
+    }
+    
     public String toString(){
         String out = super.toString(); 
-        out += "--> Idea"; 
+        out += "--> Idea";
+        out += "\nFollowers" + followers + "\n"; 
         return out; 
     } 
 }
