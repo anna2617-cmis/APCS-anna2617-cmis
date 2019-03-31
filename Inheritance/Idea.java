@@ -1,8 +1,7 @@
 public class Idea extends Entity 
 {
     private int followers; 
-    
-    public Idea(){
+        public Idea(){
         super("default");
     }
 
