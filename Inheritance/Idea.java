@@ -1,26 +1,25 @@
-public class Idea extends Entity 
+public class Idea extends Entity
 {
-    private int followers; 
-        public Idea(){
+    private int popularity;
+    public Idea(){
         super("default");
     }
-
-    public Idea(String name){
-        super(name);
-    } 
     
-    public void setFollowers(int followers){
-        this.followers = followers; 
+    public Idea(String name, int age){
+        super(name, age);
     }
-
-    public int getFollowers(){
-        return followers; 
+    
+    public int getPopularity(){
+        return popularity;
+    }
+    
+    public void setPopularity(int newPopularity){
+        popularity = newPopularity;
     }
     
     public String toString(){
-        String out = super.toString(); 
-        out += "--> Idea";
-        out += "\nFollowers" + followers + "\n"; 
-        return out; 
-    } 
+        String out = super.toString();
+        out += "->Idea";
+        return out;
+    }
 }

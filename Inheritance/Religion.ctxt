@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=Religion
+comment1.params=
+comment1.target=Religion()
+comment2.params=
+comment2.target=java.lang.String\ getGods()
+comment3.params=newGods
+comment3.target=void\ setGods(java.lang.String)
+comment4.params=
+comment4.target=java.lang.String\ toString()
+numComments=5
