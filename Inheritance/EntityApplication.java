@@ -37,8 +37,8 @@ public class EntityApplication
 
             }
             entities.add(e);
-
         }
+        
         for(Entity e: entities){
             if( e != null){
                 p(e.getName());

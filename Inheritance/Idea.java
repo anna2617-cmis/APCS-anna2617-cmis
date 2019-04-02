@@ -19,7 +19,7 @@ public class Idea extends Entity
     
     public String toString(){
         String out = super.toString();
-        out += "->Idea";
+        out += "Idea";
         return out;
     }
 }
