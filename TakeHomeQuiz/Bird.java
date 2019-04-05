@@ -3,11 +3,10 @@ public class Bird extends Animal
     private int x; 
     private int y; 
     private String color; 
-
     public Bird(int x, int y, String color){
         super(x,y); 
         this.color = color; 
-        super.setGraphic("   \\"+"\n"+"   (o>"+"\n"+"\\\\_//)"+"\n"+" \\_/_)"+"\n"+"  _|_ "); 
+        super.setGraphic("   \\"+"\n"+"   (o>"+"\n"+"\\\\_//)"+"\n"+" \\_/_)"+"\n"+"  _|_ "+"\n"); 
     }
 
     public boolean eat(String food){
@@ -52,7 +51,7 @@ public class Bird extends Animal
     public String toString(){
         String out = "Bird\n"; 
         out += super.getGraphic(); 
-        out += "\nx:" + getX() + "\ny:" + getY() + "\n"; 
+        out += "\nx: " + getX() + "\ny: " + getY() + "\n"; 
         out += super.toString(); 
         return out; 
     }
