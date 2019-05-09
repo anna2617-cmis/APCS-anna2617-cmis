@@ -2,6 +2,6 @@
 comment0.target=Readable
 comment1.params=
 comment1.target=java.lang.String\ words()
-comment2.params=
-comment2.target=void\ changeBook()
+comment2.params=newTitle\ newNum
+comment2.target=void\ changeBook(java.lang.String,\ int)
 numComments=3

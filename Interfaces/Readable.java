@@ -1,5 +1,5 @@
 public interface Readable
 {
     public String words();
-    public void changeBook(); 
+    public void changeBook(String newTitle, int newNum); 
 }
