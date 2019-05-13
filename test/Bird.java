@@ -14,31 +14,25 @@ public class Bird extends Actor
      */
     public void act() 
     {
-        move(); 
-    }  
-    
-    public void move(){
-        int y = getY(); 
-        int x = getX(); 
         if(Greenfoot.isKeyDown("w")){
-            y--; 
+            turn(-3); 
         }
         if(Greenfoot.isKeyDown("a")){
-            x--; 
+            turn(-3);
         }
         if(Greenfoot.isKeyDown("s")){
-            y++; 
+            turn(3);
         }
         if(Greenfoot.isKeyDown("d")){
-            x++; 
+            turn(3);  
         }
-        setLocation(x,y); 
-    }
-    
+        move(3); 
+    }  
+
     public int positionX(){
         return getX(); 
     }
-    
+
     public int positionY(){
         return getY(); 
     }

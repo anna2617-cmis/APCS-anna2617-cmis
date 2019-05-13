@@ -1,9 +1,9 @@
 #Greenfoot project file
-class.Bird.image=bluej-icon.png
+class.Bird.image=fly_01.png
 class.Bird.superclass=greenfoot.Actor
-class.Devil.image=smiley1.png
+class.Devil.image=spider.png
 class.Devil.superclass=greenfoot.Actor
-class.MyWorld.image=wet-blue.jpg
+class.MyWorld.image=weave.jpg
 class.MyWorld.superclass=greenfoot.World
 dependency1.from=Devil
 dependency1.to=Bird
@@ -33,7 +33,7 @@ readme.name=@README
 readme.width=47
 readme.x=10
 readme.y=10
-simulation.speed=65
+simulation.speed=50
 target1.height=50
 target1.name=Devil
 target1.showInterface=false
