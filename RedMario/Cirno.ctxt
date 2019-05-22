@@ -1,0 +1,21 @@
+#BlueJ class context
+comment0.target=Cirno
+comment1.params=
+comment1.target=Cirno()
+comment2.params=
+comment2.target=void\ moveLeft()
+comment3.params=
+comment3.target=void\ animateLeft()
+comment4.params=
+comment4.target=void\ moveRight()
+comment5.params=
+comment5.target=void\ animateRight()
+comment6.params=
+comment6.target=void\ fall()
+comment7.params=
+comment7.target=void\ jump()
+comment8.params=
+comment8.target=void\ control()
+comment9.params=
+comment9.target=void\ act()
+numComments=10
