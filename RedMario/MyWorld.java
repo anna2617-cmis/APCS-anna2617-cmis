@@ -20,7 +20,6 @@ public class MyWorld extends World
     
     public void prepare(){
         addObject(cirno, 620, 699); 
-        addObject(new Crystal(true), 620,500);
     } 
     
     public Cirno getCirno(){

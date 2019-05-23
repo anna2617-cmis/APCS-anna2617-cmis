@@ -1,4 +1,5 @@
 import greenfoot.*;  
+import java.util.*;
 public class Cirno extends Actor
 {
     private int speed = 2; 
@@ -18,7 +19,7 @@ public class Cirno extends Actor
     private GreenfootImage cirnoR4 = new GreenfootImage("cirnoR4.png");
     private int frame = 1; 
     private int animationCounter = 0; 
-
+    
     public Cirno(){
         velocity = 0; 
     }
@@ -79,7 +80,18 @@ public class Cirno extends Actor
     }
 
     public void jump(){
-        velocity = -20; 
+        velocity = -25; 
+    }
+
+    public void fire(){
+        Weapon weapon = new Weapon(); 
+        getWorld().addObject(weapon, getX(), getY()); 
+        if(getImage().equals(cirnoL1)||getImage().equals(cirnoL2)||getImage().equals(cirnoL3)||getImage().equals(cirnoL4)){
+            weapon.setRotation(180); 
+            weapon.move(60); 
+        }else{
+            weapon.move(60); 
+        }
     }
 
     public void control(){
@@ -90,6 +102,9 @@ public class Cirno extends Actor
         }
         if (Greenfoot.isKeyDown("w")&&getY() > getWorld().getHeight() - 70){
             jump(); 
+        }
+        if ("space".equals(Greenfoot.getKey())){
+            fire();  
         }
     }
 
