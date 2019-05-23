@@ -8,17 +8,19 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MyWorld extends World
 {
-    Cirno cirno = new Cirno(); 
+    private Cirno cirno; 
+    
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1240, 768, 1); 
+        cirno = new Cirno(); 
         prepare(); 
     }
     
     public void prepare(){
-        addObject(new Cirno(), 620, 699); 
-        addObject(new Crystal(), 620,500);
+        addObject(cirno, 620, 699); 
+        addObject(new Crystal(true), 620,500);
     } 
     
     public Cirno getCirno(){

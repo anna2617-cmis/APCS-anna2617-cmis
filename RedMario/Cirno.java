@@ -47,7 +47,7 @@ public class Cirno extends Actor
     }
 
     public void moveRight(){
-        setLocation(getX()+speed, getY()); 
+        setLocation(getX() + speed, getY()); 
         if (animationCounter % 5 == 0){
             animateRight();
             animationCounter = 0; 
