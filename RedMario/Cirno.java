@@ -85,7 +85,7 @@ public class Cirno extends Actor
 
     public void fire(){
         Weapon weapon = new Weapon(); 
-        getWorld().addObject(weapon, getX(), getY()); 
+        getWorld().addObject(weapon, getX(), getY() + 20); 
         if(getImage().equals(cirnoL1)||getImage().equals(cirnoL2)||getImage().equals(cirnoL3)||getImage().equals(cirnoL4)){
             weapon.setRotation(180); 
             weapon.move(60); 
