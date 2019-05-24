@@ -19,7 +19,7 @@ public class Cirno extends Actor
     private GreenfootImage cirnoR4 = new GreenfootImage("cirnoR4.png");
     private int frame = 1; 
     private int animationCounter = 0; 
-    
+
     public Cirno(){
         velocity = 0; 
     }
@@ -71,7 +71,7 @@ public class Cirno extends Actor
     }
 
     public void fall(){
-        setLocation(getX(),getY()+velocity); 
+        setLocation(getX(),getY()+velocity);
         if (getY() > getWorld().getHeight() - 70){
             velocity = 0; 
         }else{
@@ -110,6 +110,7 @@ public class Cirno extends Actor
 
     public void act() 
     {
+
         fall(); 
         control(); 
         animationCounter ++; 

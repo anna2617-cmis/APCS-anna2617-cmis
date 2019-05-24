@@ -19,6 +19,8 @@ public class MyWorld extends World
     
     public void prepare(){
         addObject(cirno, 620, 699); 
+        
+        addObject(new F1(), 40, 550); 
     } 
     
     public Cirno getCirno(){
