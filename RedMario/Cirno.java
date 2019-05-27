@@ -1,14 +1,12 @@
 import greenfoot.*;  
 import java.util.*;
-public class Cirno extends Actor
+public class Cirno extends Actor implements Movable
 {
-    private int speed = 2; 
+    private int speed = 3; 
     private final int GRAVITY = 1; 
     private int velocity; 
-
-    private GreenfootImage cirnoF1 = new GreenfootImage("cirnoF1.png"); 
-    private GreenfootImage cirnoF2 = new GreenfootImage("cirnoF2.png"); 
-    private GreenfootImage cirnoF3 = new GreenfootImage("cirnoF3.png"); 
+    private int jumpHeight; 
+    
     private GreenfootImage cirnoL1 = new GreenfootImage("cirnoL1.png"); 
     private GreenfootImage cirnoL2 = new GreenfootImage("cirnoL2.png");
     private GreenfootImage cirnoL3 = new GreenfootImage("cirnoL3.png");
@@ -22,10 +20,11 @@ public class Cirno extends Actor
 
     public Cirno(){
         velocity = 0; 
+        jumpHeight = -20; 
     }
 
     public void moveLeft(){
-        setLocation(getX()-speed, getY()); 
+        setLocation(getX() - speed, getY()); 
         if (animationCounter % 5 == 0){
             animateLeft();
             animationCounter = 0; 
@@ -72,15 +71,30 @@ public class Cirno extends Actor
 
     public void fall(){
         setLocation(getX(),getY()+velocity);
-        if (getY() > getWorld().getHeight() - 70){
-            velocity = 0; 
-        }else{
-            velocity += GRAVITY; 
-        }
+        velocity += GRAVITY; 
     }
 
     public void jump(){
-        velocity = -25; 
+        velocity = jumpHeight; 
+        if (hitBlock() == true){
+            fall(); 
+        }
+    }
+    
+    private boolean onGround(){
+       Actor under = getOneObjectAtOffset(0,getImage().getHeight()/2 + 5, Floor.class);
+       return under != null; 
+    }
+    
+    private boolean hitBlock(){
+        Actor hit = getOneObjectAtOffset(0,getImage().getHeight()*2 + 5, Chance.class);
+        return hit != null; 
+    }
+    
+    public void checkFalling(){
+        if (onGround()== false){
+            fall(); 
+        }
     }
 
     public void fire(){
@@ -100,8 +114,9 @@ public class Cirno extends Actor
         }else if (Greenfoot.isKeyDown("d")){
             moveRight(); 
         }
-        if (Greenfoot.isKeyDown("w")&&getY() > getWorld().getHeight() - 70){
+        if (Greenfoot.isKeyDown("w") && (onGround() == true)){
             jump(); 
+            fall(); 
         }
         if ("space".equals(Greenfoot.getKey())){
             fire();  
@@ -110,9 +125,8 @@ public class Cirno extends Actor
 
     public void act() 
     {
-
-        fall(); 
         control(); 
+        checkFalling(); 
         animationCounter ++; 
     }    
 }

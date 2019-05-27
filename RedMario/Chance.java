@@ -1,9 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-public class Floor extends Actor
+
+public class Chance extends Floor
 {
- 
+
     public void act() 
     {
-        
+       
     }    
 }

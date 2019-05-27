@@ -18,9 +18,9 @@ public class MyWorld extends World
     }
     
     public void prepare(){
-        addObject(cirno, 620, 699); 
-        
-        addObject(new F1(), 40, 550); 
+        addObject(cirno, 80, 600); 
+        addObject(new Ground(), 620, 725); 
+        addObject(new Enemy(), 600, 640); 
     } 
     
     public Cirno getCirno(){

@@ -10,7 +10,7 @@ public class CrystalSplat extends Actor
     public void act() 
     {
         lifeTime--; 
-        if (lifeTime == 0){
+        if (lifeTime == 0 || isTouching(Enemy.class)){
             getWorld().removeObject(this); 
         }
     }    

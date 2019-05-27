@@ -1,19 +1,97 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-/**
- * Write a description of class Enemy here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
-public class Enemy extends Actor
+public class Enemy extends Actor implements Movable, Attackable 
 {
-    /**
-     * Act - do whatever the Enemy wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    private int health; 
+    private boolean isLeft; 
+    private int frame = 1; 
+    private int animationCounter = 0; 
+    private int speed; 
+
+    private GreenfootImage monL1 = new GreenfootImage("monL1.png");
+    private GreenfootImage monL2 = new GreenfootImage("monL2.png");
+    private GreenfootImage monL3 = new GreenfootImage("monL3.png");
+    private GreenfootImage monR1 = new GreenfootImage("monR1.png");
+    private GreenfootImage monR2 = new GreenfootImage("monR2.png");
+    private GreenfootImage monR3 = new GreenfootImage("monR3.png");
+    public Enemy(){
+        isLeft = true; 
+        health = 20; 
+        speed = 3; 
+    }
+
+    public void moveLeft(){
+        setLocation(getX() - speed, getY()); 
+        if (animationCounter % 2 == 0){
+            animateLeft();
+            animationCounter = 0; 
+        }
+    } 
+
+    public void moveRight(){
+        setLocation(getX() + speed, getY()); 
+        if (animationCounter % 2 == 0){
+            animateRight();
+            animationCounter = 0; 
+        }
+    } 
+
+    public void fall(){}
+
+    public void animateLeft(){
+        if(frame == 1){
+            setImage(monL1); 
+        }else if (frame == 2){
+            setImage(monL2); 
+            frame = 1; 
+            return; 
+        }
+        frame ++; 
+    }
+    
+    public void animateRight(){
+        if(frame == 1){
+            setImage(monR1); 
+        }else if (frame == 2){
+            setImage(monR2); 
+            frame = 1; 
+            return; 
+        }
+        frame ++; 
+    }
+
+    public void getKilled(){
+        for (int a = 0; a < 5; a ++){
+            setImage(monL3); 
+        }
+        getWorld().removeObject(this); 
+    }
+
+    public void deductHealth(int dmg){
+        health -= dmg; 
+    } 
+
+    public void changeDirection(){
+        if (isTouching(Cirno.class))
+            isLeft = !isLeft; 
+    }
+    
+    public void getHit(){
+        if (isTouching(Weapon.class) || isTouching(CrystalSplat.class)){
+            deductHealth(5); 
+        }
+    }
+
     public void act() 
     {
-        // Add your action code here.
+        if (health == 0){
+            getKilled(); 
+        }
+        changeDirection(); 
+        if (isLeft){
+            moveLeft(); 
+        }else{
+            moveRight(); 
+        }
     }    
 }
