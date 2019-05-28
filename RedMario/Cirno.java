@@ -87,6 +87,7 @@ public class Cirno extends Actor implements Movable
         Actor hitL = getOneObjectAtOffset(-getImage().getWidth()/2,0, Floor.class);
         return hitL != null; 
     }
+
     private boolean hitBlockR(){
         Actor hitR = getOneObjectAtOffset(getImage().getWidth()/2,0, Floor.class);
         return hitR != null; 

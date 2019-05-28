@@ -9,6 +9,7 @@ public class Enemy extends Actor implements Movable, Attackable
     private int speed; 
     private final int GRAVITY = 1; 
     private int velocity; 
+    private int deathCounter = 10; 
 
     private GreenfootImage monL1 = new GreenfootImage("monL1.png");
     private GreenfootImage monL2 = new GreenfootImage("monL2.png");
@@ -66,10 +67,25 @@ public class Enemy extends Actor implements Movable, Attackable
     }
 
     public void getKilled(){
-        for (int a = 0; a < 5; a ++){
-            setImage(monL3); 
+        if(health == 0){
+            getWorld().removeObject(this); 
         }
-        getWorld().removeObject(this); 
+    }
+
+    public void animateDeath(){
+        for (int a = 0; a < 10; a ++){
+            if (getImage().equals(monL1)||getImage().equals(monL2))
+                setImage(monL3); 
+            else if (getImage().equals(monR1)||getImage().equals(monR2))
+                setImage(monR3); 
+        }
+    }
+
+    public boolean isAlive(){
+        if (health > 5){
+            return true; 
+        }
+        return false; 
     }
 
     public void deductHealth(int dmg){
@@ -77,7 +93,7 @@ public class Enemy extends Actor implements Movable, Attackable
     } 
 
     public void changeDirection(){
-        if (isTouching(RecF.class))
+        if (hitBlock())
             isLeft = !isLeft; 
     }
 
@@ -86,12 +102,23 @@ public class Enemy extends Actor implements Movable, Attackable
             deductHealth(5); 
         }
     }
-    
+
     private boolean onGround(){
         Actor under = getOneObjectAtOffset(0,getImage().getHeight()/2 + 20, Floor.class);
         return under != null; 
     }
-    
+
+    private boolean hitBlock(){
+        Actor hitL = getOneObjectAtOffset(-getImage().getWidth()/2,0, Floor.class);
+        Actor hitR = getOneObjectAtOffset(getImage().getWidth()/2,0, Floor.class);
+        if (hitL != null){
+            return hitL != null; 
+        } else if (hitR != null){
+            return hitR != null; 
+        }
+        return false; 
+    }
+
     public void checkFalling(){
         if (onGround()== false){
             fall(); 
@@ -100,15 +127,17 @@ public class Enemy extends Actor implements Movable, Attackable
 
     public void act() 
     {
-        if (health == 0){
-            getKilled(); 
-        }
+        getHit(); 
         changeDirection(); 
         checkFalling(); 
-        if (isLeft){
-            moveLeft(); 
-        }else{
-            moveRight(); 
-        }
+        if(isAlive()){
+            if (isLeft){
+                moveLeft(); 
+            }else{
+                moveRight(); 
+            }
+        }else
+            animateDeath(); 
+        getKilled(); 
     }    
 }
