@@ -6,7 +6,7 @@ public class Cirno extends Actor implements Movable
     private final int GRAVITY = 1; 
     private int velocity; 
     private int jumpHeight; 
-    
+
     private GreenfootImage cirnoL1 = new GreenfootImage("cirnoL1.png"); 
     private GreenfootImage cirnoL2 = new GreenfootImage("cirnoL2.png");
     private GreenfootImage cirnoL3 = new GreenfootImage("cirnoL3.png");
@@ -76,21 +76,22 @@ public class Cirno extends Actor implements Movable
 
     public void jump(){
         velocity = jumpHeight; 
-        if (hitBlock() == true){
-            fall(); 
-        }
     }
-    
+
     private boolean onGround(){
-       Actor under = getOneObjectAtOffset(0,getImage().getHeight()/2 + 5, Floor.class);
-       return under != null; 
+        Actor under = getOneObjectAtOffset(0,getImage().getHeight()/2 + 5, Floor.class);
+        return under != null; 
     }
-    
-    private boolean hitBlock(){
-        Actor hit = getOneObjectAtOffset(0,getImage().getHeight()*2 + 5, Chance.class);
-        return hit != null; 
+
+    private boolean hitBlockL(){
+        Actor hitL = getOneObjectAtOffset(-getImage().getWidth()/2,0, Floor.class);
+        return hitL != null; 
     }
-    
+    private boolean hitBlockR(){
+        Actor hitR = getOneObjectAtOffset(getImage().getWidth()/2,0, Floor.class);
+        return hitR != null; 
+    }
+
     public void checkFalling(){
         if (onGround()== false){
             fall(); 
@@ -109,9 +110,9 @@ public class Cirno extends Actor implements Movable
     }
 
     public void control(){
-        if (Greenfoot.isKeyDown("a")){
+        if (Greenfoot.isKeyDown("a") && !hitBlockL()){
             moveLeft(); 
-        }else if (Greenfoot.isKeyDown("d")){
+        }else if (Greenfoot.isKeyDown("d") && !hitBlockR()){
             moveRight(); 
         }
         if (Greenfoot.isKeyDown("w") && (onGround() == true)){

@@ -7,6 +7,8 @@ public class Enemy extends Actor implements Movable, Attackable
     private int frame = 1; 
     private int animationCounter = 0; 
     private int speed; 
+    private final int GRAVITY = 1; 
+    private int velocity; 
 
     private GreenfootImage monL1 = new GreenfootImage("monL1.png");
     private GreenfootImage monL2 = new GreenfootImage("monL2.png");
@@ -36,7 +38,10 @@ public class Enemy extends Actor implements Movable, Attackable
         }
     } 
 
-    public void fall(){}
+    public void fall(){
+        setLocation(getX(),getY()+velocity);
+        velocity += GRAVITY; 
+    }
 
     public void animateLeft(){
         if(frame == 1){
@@ -48,7 +53,7 @@ public class Enemy extends Actor implements Movable, Attackable
         }
         frame ++; 
     }
-    
+
     public void animateRight(){
         if(frame == 1){
             setImage(monR1); 
@@ -72,13 +77,24 @@ public class Enemy extends Actor implements Movable, Attackable
     } 
 
     public void changeDirection(){
-        if (isTouching(Cirno.class))
+        if (isTouching(RecF.class))
             isLeft = !isLeft; 
     }
-    
+
     public void getHit(){
         if (isTouching(Weapon.class) || isTouching(CrystalSplat.class)){
             deductHealth(5); 
+        }
+    }
+    
+    private boolean onGround(){
+        Actor under = getOneObjectAtOffset(0,getImage().getHeight()/2 + 20, Floor.class);
+        return under != null; 
+    }
+    
+    public void checkFalling(){
+        if (onGround()== false){
+            fall(); 
         }
     }
 
@@ -88,6 +104,7 @@ public class Enemy extends Actor implements Movable, Attackable
             getKilled(); 
         }
         changeDirection(); 
+        checkFalling(); 
         if (isLeft){
             moveLeft(); 
         }else{
