@@ -30,7 +30,7 @@ public class Start extends TextImg
         animateCounter++; 
         
         if (Greenfoot.isKeyDown("enter")){
-            Greenfoot.setWorld(new MyWorld()); 
+            Greenfoot.setWorld(new TutorWorld()); 
         }
     }    
 }

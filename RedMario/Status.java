@@ -2,14 +2,18 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Status extends Actor
 {
     private int lifeNum; 
-    
-    public Status(){
-        lifeNum = 3; 
+
+    public String getLife(){
+        Cirno cirno = ((Lv1)getWorld()).getCirno(); 
+        lifeNum = cirno.getDeath(); 
+        String num = "" + lifeNum; 
+        return num; 
     }
-    public int getLife(){
-        return lifeNum; 
-    }
+
     public void act() 
     {
+        GreenfootImage img = getImage();  
+        img.drawString(getLife(), 20, 20); 
+        setImage(img);
     }    
 }

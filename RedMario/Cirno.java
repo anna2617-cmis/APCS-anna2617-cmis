@@ -7,6 +7,7 @@ public class Cirno extends Actor implements Movable
     private int velocity; 
     private int jumpHeight; 
     private int mana; 
+    private static int death = 0; 
 
     private GreenfootImage cirnoL1 = new GreenfootImage("cirnoL1.png"); 
     private GreenfootImage cirnoL2 = new GreenfootImage("cirnoL2.png");
@@ -21,8 +22,12 @@ public class Cirno extends Actor implements Movable
 
     public Cirno(){
         velocity = 0; 
-        jumpHeight = -20; 
+        jumpHeight = -25; 
         mana = 0; 
+    }
+    
+    public int getDeath(){
+        return death; 
     }
 
     public void moveLeft(){
@@ -72,9 +77,10 @@ public class Cirno extends Actor implements Movable
     }
 
     public void getKilled(){
-        if (isTouching(Enemy.class)){
+        if (isTouching(Enemy.class) || getY() > 767){
             getWorld().removeObject(this); 
-            Greenfoot.setWorld(new End()); 
+            death ++; 
+            Greenfoot.setWorld(new Lose()); 
         }
     }
 

@@ -71,7 +71,7 @@ public class Enemy extends Actor implements Movable, Attackable
     }
 
     public void getKilled(){
-        if(health == 0){
+        if(health == 0 || getY() > 767){
             getWorld().removeObject(this); 
         }
     }

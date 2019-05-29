@@ -11,9 +11,7 @@ public class Plant extends Actor implements Attackable
     private int health = 10;
     
     public Plant(){
-        GreenfootImage image = getImage();
-        image.scale(50,100);
-        setImage(image);
+
     }
     
     public void getKilled(){
