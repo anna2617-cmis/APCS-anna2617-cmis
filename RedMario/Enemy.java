@@ -38,6 +38,10 @@ public class Enemy extends Actor implements Movable, Attackable
             animationCounter = 0; 
         }
     } 
+    
+    public int getHealth(){
+        return health; 
+    }
 
     public void fall(){
         setLocation(getX(),getY()+velocity);
@@ -91,9 +95,20 @@ public class Enemy extends Actor implements Movable, Attackable
     public void deductHealth(int dmg){
         health -= dmg; 
     } 
+    
+    public boolean atEdge(){
+        if(getX() < 10 || getX() > getWorld().getWidth()-10){
+            return true; 
+        }
+        if(getY() < 10 || getY() > getWorld().getHeight()-10){
+            return true; 
+        }else{
+            return false; 
+        }
+    }
 
     public void changeDirection(){
-        if (hitBlock())
+        if (hitBlock() || atEdge())
             isLeft = !isLeft; 
     }
 
@@ -104,7 +119,7 @@ public class Enemy extends Actor implements Movable, Attackable
     }
 
     private boolean onGround(){
-        Actor under = getOneObjectAtOffset(0,getImage().getHeight()/2 + 20, Floor.class);
+        Actor under = getOneObjectAtOffset(0,getImage().getHeight()/2, Floor.class);
         return under != null; 
     }
 

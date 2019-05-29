@@ -6,6 +6,7 @@ public class Cirno extends Actor implements Movable
     private final int GRAVITY = 1; 
     private int velocity; 
     private int jumpHeight; 
+    private int mana; 
 
     private GreenfootImage cirnoL1 = new GreenfootImage("cirnoL1.png"); 
     private GreenfootImage cirnoL2 = new GreenfootImage("cirnoL2.png");
@@ -21,6 +22,7 @@ public class Cirno extends Actor implements Movable
     public Cirno(){
         velocity = 0; 
         jumpHeight = -20; 
+        mana = 0; 
     }
 
     public void moveLeft(){
@@ -67,6 +69,13 @@ public class Cirno extends Actor implements Movable
             return; 
         }
         frame ++; 
+    }
+
+    public void getKilled(){
+        if (isTouching(Enemy.class)){
+            getWorld().removeObject(this); 
+            Greenfoot.setWorld(new End()); 
+        }
     }
 
     public void fall(){
@@ -120,15 +129,19 @@ public class Cirno extends Actor implements Movable
             jump(); 
             fall(); 
         }
-        if ("space".equals(Greenfoot.getKey())){
+        if ("space".equals(Greenfoot.getKey()) && mana > 50 ){
             fire();  
+            mana = 0; 
         }
     }
 
     public void act() 
     {
+
+        mana ++; 
         control(); 
         checkFalling(); 
         animationCounter ++; 
+        getKilled(); 
     }    
 }

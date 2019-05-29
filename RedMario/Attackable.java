@@ -14,4 +14,5 @@ public interface Attackable
     public void deductHealth(int dmg); 
     /** change the moving direction and the img direction of the monster */
     public void changeDirection(); 
+    public int getHealth(); 
 }
