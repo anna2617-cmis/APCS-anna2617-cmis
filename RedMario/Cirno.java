@@ -2,7 +2,7 @@ import greenfoot.*;
 import java.util.*;
 public class Cirno extends Actor implements Movable
 {
-    private int speed = 3; 
+    private int speed = 4; 
     private final int GRAVITY = 1; 
     private int velocity; 
     private int jumpHeight; 
@@ -22,10 +22,10 @@ public class Cirno extends Actor implements Movable
 
     public Cirno(){
         velocity = 0; 
-        jumpHeight = -25; 
+        jumpHeight = -22; 
         mana = 0; 
     }
-    
+
     public int getDeath(){
         return death; 
     }
@@ -76,11 +76,23 @@ public class Cirno extends Actor implements Movable
         frame ++; 
     }
 
+    public boolean step(){
+        Actor under = getOneObjectAtOffset(0,getImage().getHeight()/2 + 5, Enemy.class);
+        Actor underBR = getOneObjectAtOffset(-getImage().getHeight()/2,getImage().getHeight()/2 + 5, Enemy.class);
+        Actor underBL = getOneObjectAtOffset(getImage().getHeight()/2,getImage().getHeight()/2 + 5, Enemy.class);
+        return (under != null || underBR != null ||  underBL != null);    
+    }
+
     public void getKilled(){
-        if (isTouching(Enemy.class) || getY() > 765){
-            getWorld().removeObject(this); 
-            death ++; 
-            Greenfoot.setWorld(new Lose()); 
+        if ((isTouching(Enemy.class)) || getY() > 765 || isTouching(FallF.class)){
+            if(!step()){
+                getWorld().removeObject(this); 
+                death ++; 
+                Greenfoot.setWorld(new Lose()); 
+            }else{
+                jump(); 
+                fall(); 
+            }
         }
     }
 
@@ -95,11 +107,9 @@ public class Cirno extends Actor implements Movable
 
     public boolean onGround(){
         Actor under = getOneObjectAtOffset(0,getImage().getHeight()/2 + 5, Floor.class);
-        Actor underBR = getOneObjectAtOffset(-getImage().getHeight()/2,getImage().getHeight()/2 + 5, RecF.class);
-        Actor underBL = getOneObjectAtOffset(getImage().getHeight()/2,getImage().getHeight()/2 + 5, RecF.class);
-        return (under != null || underBR != null ||  underBL != null);  
+        return under != null;   
     }
-    
+
     public boolean hitBlockU(){
         Actor upC = getOneObjectAtOffset(0,-getImage().getHeight()/2 - 10, Floor.class);
         Actor upR = getOneObjectAtOffset(getImage().getWidth()/2,-getImage().getHeight()/2 - 10, Floor.class);
@@ -120,7 +130,7 @@ public class Cirno extends Actor implements Movable
         Actor hitRL = getOneObjectAtOffset(getImage().getWidth()/2,-getImage().getHeight()/2, Floor.class);
         return (hitRC != null || hitRR != null || hitRL != null); 
     }
-    
+
     public void hitDrop(){
         if (hitBlockU()){
             velocity = 5; 
@@ -129,7 +139,7 @@ public class Cirno extends Actor implements Movable
     }
 
     public void checkFalling(){
-        if (onGround()== false){
+        if (onGround()== false && !step()){
             fall(); 
         }
     }
@@ -144,7 +154,6 @@ public class Cirno extends Actor implements Movable
             weapon.move(60); 
         }
     }
-    
 
     public void control(){
         if (Greenfoot.isKeyDown("a") && !hitBlockL()){
@@ -164,7 +173,6 @@ public class Cirno extends Actor implements Movable
 
     public void act() 
     {
-
         mana ++; 
         hitDrop(); 
         control(); 

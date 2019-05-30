@@ -1,28 +1,27 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class MoveBlock here.
+ * Write a description of class FlyMon here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class MoveBlock extends Floor
+public class FlyMon extends Enemy
 {
     private final int GRAVITY = 1; 
-    private int velocity = 0; 
-
+    private int velocity = -30; 
+    private boolean isTouch = false; 
     public void fall(){
         setLocation(getX(),getY()+velocity);
         velocity += GRAVITY; 
     }
     
     public boolean touches(){
-        Cirno cirno = ((Stage1)getWorld()).getCirno(); 
+        Cirno cirno = ((Stage3)getWorld()).getCirno(); 
         if (cirno.getX() >= this.getX() - 95 ){
-            return true; 
-        }else{
-            return false; 
+            isTouch = true; 
         }
+        return isTouch; 
     }
    
     public void remove(){
@@ -34,9 +33,9 @@ public class MoveBlock extends Floor
     public void act() 
     {
         remove(); 
-        if (getY() == 767){
+        if (getY() == 5 || getY() == 767){
             getWorld().removeObject(this); 
         }
 
-    }    
+    }         
 }

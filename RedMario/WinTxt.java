@@ -1,21 +1,19 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Retry here.
+ * Write a description of class WinTxt here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Retry extends TextImg
+public class WinTxt extends TextImg
 {
     /**
-     * Act - do whatever the Retry wants to do. This method is called whenever
+     * Act - do whatever the WinTxt wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act() 
     {
-        if (Greenfoot.isKeyDown("r")){
-            Greenfoot.setWorld(new Stage1()); 
-        }
+        // Add your action code here.
     }    
 }

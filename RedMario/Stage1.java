@@ -6,11 +6,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Lv1 extends World
+public class Stage1 extends World
 {
     private Cirno cirno; 
     private Block block; 
-    public Lv1()
+    public Stage1()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1240, 768, 1); 
@@ -20,11 +20,11 @@ public class Lv1 extends World
     }
 
     public void prepare(){
-        addObject(cirno, 80, 600); 
+
         addObject(new Ground(), 210, 725); 
         addObject(new GroundBlock(), 1138, 725); 
         addObject(new MoveBlock(), 933, 725); 
-        //addObject(new Enemy(), 520, 640); 
+        addObject(new Enemy(), 635, 430); 
         addObject(new RecF(), 772, 649); 
         addObject(block, 890, 220); 
         RecF recf2 = new RecF();
@@ -42,11 +42,13 @@ public class Lv1 extends World
         RecF recf6 = new RecF();
         addObject(recf6,782,479);
         recf6.setLocation(772,470);
+        addObject(new ChanceS1(), 85, 340); 
+        addObject(cirno, 80, 600); 
     } 
 
     public void act(){
         if (cirno.getX() > 1200){
-            Greenfoot.setWorld(new Lv2()); 
+            Greenfoot.setWorld(new Stage2()); 
         }
     }
 

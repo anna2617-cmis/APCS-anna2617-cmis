@@ -18,7 +18,10 @@ public class Enemy extends Actor implements Movable, Attackable
     private GreenfootImage monR2 = new GreenfootImage("monR2.png");
     private GreenfootImage monR3 = new GreenfootImage("monR3.png");
     public Enemy(){
-        isLeft = true; 
+        if(Math.random() < 0.5)
+            isLeft = true;
+        else 
+            isLeft = false; 
         health = 20; 
         speed = 3; 
     }
@@ -119,8 +122,10 @@ public class Enemy extends Actor implements Movable, Attackable
     }
 
     private boolean onGround(){
-        Actor under = getOneObjectAtOffset(0,getImage().getHeight()/2, Floor.class);
-        return under != null; 
+        Actor under = getOneObjectAtOffset(0,getImage().getHeight()/2 + 5, Floor.class);
+        Actor underBR = getOneObjectAtOffset(-getImage().getHeight()/2,getImage().getHeight()/2 + 5, Floor.class);
+        Actor underBL = getOneObjectAtOffset(getImage().getHeight()/2,getImage().getHeight()/2 + 5, Floor.class);
+        return (under != null || underBR != null ||  underBL != null);  
     }
 
     private boolean hitBlock(){

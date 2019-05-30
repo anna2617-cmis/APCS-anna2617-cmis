@@ -19,16 +19,17 @@ public class TutorWorld extends World
 
     public void act(){
         if (cirno.getX() > 1200){
-            Greenfoot.setWorld(new Lv1()); 
+            Greenfoot.setWorld(new Stage1()); 
         }
     }
 
     public void prepare(){
         addObject(new Tutor(), 300, 230); 
-        addObject(cirno, 80, 600); 
+        addObject(new endTutor(), 900, 370); 
         addObject(new Ground(), 620, 725); 
         addObject(new Enemy(), 1150, 640); 
         addObject(new RecF(), 620, 480); 
+        addObject(cirno, 80, 600);
     } 
 
     public Cirno getCirno(){
