@@ -25,7 +25,7 @@ public class Enemy extends Actor implements Movable, Attackable
 
     public void moveLeft(){
         setLocation(getX() - speed, getY()); 
-        if (animationCounter % 2 == 0){
+        if (animationCounter % 5 == 0){
             animateLeft();
             animationCounter = 0; 
         }
@@ -33,7 +33,7 @@ public class Enemy extends Actor implements Movable, Attackable
 
     public void moveRight(){
         setLocation(getX() + speed, getY()); 
-        if (animationCounter % 2 == 0){
+        if (animationCounter % 5 == 0){
             animateRight();
             animationCounter = 0; 
         }
@@ -71,7 +71,7 @@ public class Enemy extends Actor implements Movable, Attackable
     }
 
     public void getKilled(){
-        if(health == 0 || getY() > 767){
+        if(health == 0 || getY() > 765){
             getWorld().removeObject(this); 
         }
     }

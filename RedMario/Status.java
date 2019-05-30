@@ -4,7 +4,7 @@ public class Status extends Actor
     private int lifeNum; 
 
     public String getLife(){
-        Cirno cirno = ((Lv1)getWorld()).getCirno(); 
+        Cirno cirno = ((Lose)getWorld()).getCirno(); 
         lifeNum = cirno.getDeath(); 
         String num = "" + lifeNum; 
         return num; 

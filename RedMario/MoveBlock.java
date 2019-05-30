@@ -18,7 +18,7 @@ public class MoveBlock extends Floor
     
     public boolean touches(){
         Cirno cirno = ((Lv1)getWorld()).getCirno(); 
-        if (cirno.getX() > this.getX()){
+        if (cirno.getX() >= this.getX() - 90 ){
             return true; 
         }else{
             return false; 
