@@ -20,7 +20,9 @@ public class Stage2 extends World
     }
 
     public void prepare(){
-        addObject(new Enemy(), 1005,264); 
+        Enemy ball = new Enemy(); 
+        ball.changeDirection(true); 
+        addObject(ball, 1005,264); 
 
         GroundBlock groundBlock = new GroundBlock();
         addObject(groundBlock,103,725);
@@ -35,19 +37,22 @@ public class Stage2 extends World
         GroundBlock groundBlock6 = new GroundBlock();
         addObject(groundBlock6,918,725);
 
-        addObject(new RecF(),353,649);
+        RecF flr = new RecF();
+        flr.setImg(1);
+        addObject(flr,353,649);
         addObject(new RecF(),238,649);
         addObject(new RecF(),238,589);
         addObject(new RecF(),353,589);
         addObject(new RecF(),353,529);
         addObject(new RecF(),353,469);
 
-        addObject(new RecF(),549,649);
+      
         addObject(new RecF(),664,649);
-        addObject(new RecF(),549,589);
         addObject(new RecF(),664,589);
-        addObject(new RecF(),549,529);
-        addObject(new RecF(),549,469);
+
+        for (int a = 0; a < 4; a++){
+            addObject(new RecF(),549,649 - a*60);
+        }
         
         addObject(new RecF(),1184,649);
         addObject(new RecF(),1184,589);

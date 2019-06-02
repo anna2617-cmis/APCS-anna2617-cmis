@@ -114,6 +114,10 @@ public class Enemy extends Actor implements Movable, Attackable
         if (hitBlock() || atEdge())
             isLeft = !isLeft; 
     }
+    
+    public void changeDirection(boolean condition){
+        isLeft = condition; 
+    }
 
     public void getHit(){
         if (isTouching(Weapon.class) || isTouching(CrystalSplat.class)){

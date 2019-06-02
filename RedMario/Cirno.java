@@ -84,7 +84,7 @@ public class Cirno extends Actor implements Movable
     }
 
     public void getKilled(){
-        if ((isTouching(Enemy.class)) || getY() > 765 || isTouching(FallF.class)){
+        if ((isTouching(Attackable.class)) || getY() > 765 || isTouching(FallF.class)){
             if(!step()){
                 getWorld().removeObject(this); 
                 death ++; 

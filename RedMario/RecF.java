@@ -19,6 +19,10 @@ public class RecF extends Floor
         setImage(recFloor.get((int)(Math.random()*5)));
     }
 
+    public void setImg(int num){
+        setImage(recFloor.get(num));
+    }
+    
     public void act() 
     {
         // Add your action code here.
